@@ -33,11 +33,14 @@
             --ink: #171717;
             --muted: #696969;
             --line: #dedbd4;
+
             --lavender: #c9b9ff;
             --lavender-dark: #7257c7;
             --soft-lavender: #eee9ff;
+
             --blue: #d9e9ff;
             --green: #dcebdc;
+            --soft-yellow: #f5edc9;
         }
 
         body {
@@ -73,7 +76,9 @@
             content: "";
             position: fixed;
             inset: 0;
+
             pointer-events: none;
+
             opacity: 0.35;
             z-index: -1;
 
@@ -139,6 +144,7 @@
 
         .nav-links a {
             color: var(--muted);
+
             transition: color 0.2s ease;
         }
 
@@ -153,7 +159,9 @@
 
         .container {
             max-width: 1200px;
+
             margin: auto;
+
             padding: 0 30px;
         }
 
@@ -164,6 +172,7 @@
         .eyebrow {
             display: inline-flex;
             align-items: center;
+
             gap: 8px;
 
             font-size: 11px;
@@ -177,9 +186,12 @@
 
         .eyebrow::before {
             content: "";
+
             width: 7px;
             height: 7px;
+
             border-radius: 50%;
+
             background: var(--lavender-dark);
         }
 
@@ -188,6 +200,7 @@
 
             font-size: 11px;
             font-weight: 800;
+
             letter-spacing: 2px;
             text-transform: uppercase;
 
@@ -198,7 +211,9 @@
             max-width: 850px;
 
             font-size: clamp(42px, 6vw, 72px);
+
             line-height: 0.98;
+
             letter-spacing: -4px;
         }
 
@@ -218,8 +233,11 @@
 
         .hero-grid {
             display: grid;
+
             grid-template-columns: 1.5fr 0.7fr;
+
             gap: 70px;
+
             align-items: end;
         }
 
@@ -229,12 +247,15 @@
             margin: 25px 0 30px;
 
             font-size: clamp(58px, 9vw, 120px);
+
             line-height: 0.86;
+
             letter-spacing: -7px;
         }
 
         .hero h1 em {
             font-style: normal;
+
             color: var(--lavender-dark);
         }
 
@@ -242,11 +263,13 @@
             max-width: 680px;
 
             font-size: 20px;
+
             color: var(--muted);
         }
 
         .hero-meta {
             border-left: 2px solid var(--ink);
+
             padding-left: 25px;
         }
 
@@ -255,8 +278,10 @@
 
             font-size: 10px;
             font-weight: 800;
+
             letter-spacing: 1.5px;
             text-transform: uppercase;
+
             color: var(--muted);
         }
 
@@ -271,7 +296,9 @@
             margin-top: 40px;
 
             display: flex;
+
             gap: 12px;
+
             flex-wrap: wrap;
         }
 
@@ -281,6 +308,7 @@
             padding: 13px 21px;
 
             border: 1px solid var(--ink);
+
             border-radius: 3px;
 
             font-size: 13px;
@@ -297,11 +325,13 @@
 
         .button.primary {
             background: var(--ink);
+
             color: white;
         }
 
         .button.accent {
             background: var(--lavender);
+
             border-color: var(--lavender);
         }
 
@@ -316,64 +346,178 @@
 
             padding: 16px 0;
 
-            overflow: hidden;
-
             background: rgba(255,255,255,0.35);
         }
 
         .tag-track {
             display: flex;
             justify-content: center;
+
             gap: 35px;
+
             flex-wrap: wrap;
         }
 
         .tag {
             font-size: 11px;
             font-weight: 800;
+
             letter-spacing: 1.4px;
             text-transform: uppercase;
+
             color: #777;
         }
 
         .tag::before {
             content: "✦";
+
             margin-right: 12px;
+
             color: var(--lavender-dark);
         }
 
 
         /* =========================================
-           CASE STUDIES
+           SELECTED WORK
         ========================================= */
 
         .work-header {
             display: flex;
+
             justify-content: space-between;
+
             align-items: end;
+
             gap: 40px;
 
-            margin-bottom: 65px;
+            margin-bottom: 70px;
         }
 
         .work-intro {
             max-width: 450px;
-            color: var(--muted);
+
             font-size: 16px;
+
+            color: var(--muted);
         }
 
-        .case-study {
-            border-top: 1px solid var(--ink);
-            padding: 45px 0 55px;
 
+        /* =========================================
+           FEATURED PROJECT
+        ========================================= */
+
+        .featured-project {
             display: grid;
-            grid-template-columns: 100px 1fr 0.7fr;
-            gap: 45px;
+
+            grid-template-columns: 1fr 1fr;
+
+            margin-bottom: 55px;
+
+            border: 1px solid var(--line);
+
+            background: white;
+        }
+
+        .project-visual {
+            min-height: 570px;
+
+            padding: 35px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .project-visual.loyalty {
+            background: var(--soft-lavender);
+        }
+
+        .project-visual.engagement {
+            background: var(--blue);
+        }
+
+        .project-visual-label {
+            position: relative;
+
+            z-index: 3;
+
+            font-size: 9px;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .visual-placeholder {
+            position: absolute;
+
+            left: 40px;
+            right: 40px;
+            top: 90px;
+            bottom: 40px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px dashed rgba(0,0,0,0.25);
+
+            background: rgba(255,255,255,0.32);
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+        .visual-placeholder-content {
+            max-width: 330px;
+        }
+
+        .visual-placeholder-small {
+            margin-bottom: 15px;
+
+            font-size: 9px;
+            font-weight: 800;
+
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+
+            color: var(--lavender-dark);
+        }
+
+        .visual-placeholder h4 {
+            margin-bottom: 12px;
+
+            font-size: 27px;
+
+            line-height: 1;
+
+            letter-spacing: -1px;
+        }
+
+        .visual-placeholder p {
+            font-size: 13px;
+
+            color: #555;
+        }
+
+        .project-content {
+            padding: 55px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
         }
 
         .case-number {
-            font-size: 13px;
+            margin-bottom: 35px;
+
+            font-size: 11px;
             font-weight: 800;
+
             color: var(--lavender-dark);
         }
 
@@ -382,28 +526,32 @@
 
             font-size: 10px;
             font-weight: 800;
+
             letter-spacing: 1.6px;
             text-transform: uppercase;
 
             color: var(--muted);
         }
 
-        .case-study h3 {
-            margin-bottom: 18px;
+        .featured-project h3 {
+            margin-bottom: 20px;
 
-            font-size: clamp(30px, 4vw, 50px);
-            line-height: 0.98;
-            letter-spacing: -2.5px;
+            font-size: clamp(38px, 5vw, 60px);
+
+            line-height: 0.95;
+
+            letter-spacing: -3px;
         }
 
-        .case-study h3 a:hover {
+        .featured-project h3 a:hover {
             color: var(--lavender-dark);
         }
 
         .case-description {
-            max-width: 650px;
+            max-width: 600px;
 
             font-size: 16px;
+
             color: var(--muted);
         }
 
@@ -411,7 +559,9 @@
             margin-top: 25px;
 
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 7px;
         }
 
@@ -419,22 +569,45 @@
             padding: 6px 9px;
 
             border: 1px solid var(--line);
+
             border-radius: 2px;
 
             font-size: 9px;
             font-weight: 800;
+
             letter-spacing: 0.8px;
             text-transform: uppercase;
         }
 
-        .case-right {
+        .case-metrics {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+
+            gap: 35px;
+
+            margin-top: 35px;
         }
 
-        .case-question {
-            padding: 18px;
+        .metric-number {
+            font-size: 30px;
+            font-weight: 800;
+
+            letter-spacing: -1.5px;
+        }
+
+        .metric-label {
+            font-size: 9px;
+            font-weight: 800;
+
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+        .project-question {
+            margin-top: 40px;
+
+            padding: 20px;
 
             background: var(--soft-lavender);
 
@@ -443,56 +616,122 @@
             font-size: 13px;
         }
 
-        .case-question strong {
+        .project-question strong {
             display: block;
 
             margin-bottom: 8px;
 
             font-size: 9px;
+            font-weight: 800;
+
             letter-spacing: 1.2px;
             text-transform: uppercase;
         }
 
-        .case-metrics {
-            display: flex;
-            gap: 35px;
-
-            margin-top: 30px;
-        }
-
-        .metric-number {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: -1.5px;
-        }
-
-        .metric-label {
-            font-size: 9px;
-            font-weight: 800;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            color: var(--muted);
-        }
-
         .case-link {
             display: inline-block;
-            margin-top: 25px;
+
+            width: fit-content;
+
+            margin-top: 35px;
+
+            padding-bottom: 4px;
+
+            border-bottom: 1px solid var(--ink);
 
             font-size: 12px;
             font-weight: 800;
+
+            transition: all 0.2s ease;
         }
 
         .case-link:hover {
             color: var(--lavender-dark);
+
+            border-color: var(--lavender-dark);
+
+            transform: translateX(4px);
         }
 
 
         /* =========================================
-           INTERSECTION
+           COMING SOON
+        ========================================= */
+
+        .coming-soon {
+            margin-top: 70px;
+
+            padding: 60px;
+
+            background: var(--ink);
+
+            color: white;
+
+            display: grid;
+
+            grid-template-columns: 0.9fr 1.1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .coming-soon .section-label {
+            color: #999;
+        }
+
+        .coming-soon h3 {
+            max-width: 500px;
+
+            font-size: clamp(38px, 5vw, 58px);
+
+            line-height: 0.95;
+
+            letter-spacing: -3px;
+        }
+
+        .coming-soon-copy {
+            color: #bbb;
+
+            font-size: 16px;
+        }
+
+        .coming-soon-copy p {
+            margin-bottom: 20px;
+        }
+
+        .coming-soon-tags {
+            margin-top: 25px;
+
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+        }
+
+        .coming-tag {
+            padding: 7px 10px;
+
+            border: 1px solid #444;
+
+            font-size: 9px;
+            font-weight: 800;
+
+            letter-spacing: 0.9px;
+            text-transform: uppercase;
+
+            color: #ccc;
+        }
+
+
+        /* =========================================
+           PRODUCT INTERSECTION
         ========================================= */
 
         .intersection {
             background: var(--ink);
+
             color: white;
         }
 
@@ -504,7 +743,9 @@
             margin-top: 60px;
 
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 1px;
 
             background: #444;
@@ -527,25 +768,30 @@
         }
 
         .intersection-number {
-            font-size: 11px;
-            color: #888;
             margin-bottom: 70px;
+
+            font-size: 11px;
+
+            color: #888;
         }
 
         .intersection-card h3 {
             margin-bottom: 15px;
 
             font-size: 30px;
+
             letter-spacing: -1px;
         }
 
         .intersection-card p {
-            color: #aaa;
             font-size: 14px;
+
+            color: #aaa;
         }
 
         .intersection-center {
             margin-top: 45px;
+
             text-align: center;
         }
 
@@ -555,10 +801,12 @@
             padding: 15px 30px;
 
             background: var(--lavender);
+
             color: var(--ink);
 
             font-size: 13px;
             font-weight: 900;
+
             letter-spacing: 2px;
             text-transform: uppercase;
         }
@@ -570,17 +818,20 @@
 
         .approach-intro {
             max-width: 750px;
+
             margin-bottom: 65px;
 
             font-size: 20px;
+
             color: var(--muted);
         }
 
         .process {
-            border-top: 1px solid var(--ink);
-
             display: grid;
+
             grid-template-columns: repeat(5, 1fr);
+
+            border-top: 1px solid var(--ink);
         }
 
         .process-step {
@@ -598,6 +849,7 @@
 
             font-size: 10px;
             font-weight: 800;
+
             color: var(--lavender-dark);
         }
 
@@ -605,11 +857,13 @@
             margin-bottom: 10px;
 
             font-size: 22px;
+
             letter-spacing: -0.5px;
         }
 
         .process-step p {
             font-size: 13px;
+
             color: var(--muted);
         }
 
@@ -624,8 +878,11 @@
 
         .requirements-grid {
             display: grid;
+
             grid-template-columns: 0.8fr 1.2fr;
+
             gap: 90px;
+
             align-items: center;
         }
 
@@ -635,6 +892,7 @@
             margin-top: 25px;
 
             font-size: 18px;
+
             color: #555;
         }
 
@@ -648,13 +906,16 @@
             border-bottom: 1px solid rgba(0,0,0,0.2);
 
             display: grid;
+
             grid-template-columns: 120px 1fr;
+
             gap: 25px;
         }
 
         .requirement-label {
             font-size: 10px;
             font-weight: 800;
+
             letter-spacing: 1.2px;
             text-transform: uppercase;
         }
@@ -670,12 +931,15 @@
 
         .about-grid {
             display: grid;
+
             grid-template-columns: 0.8fr 1.2fr;
+
             gap: 100px;
         }
 
         .about-copy {
             font-size: 18px;
+
             color: var(--muted);
         }
 
@@ -687,7 +951,9 @@
             margin-top: 35px;
 
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 8px;
         }
 
@@ -695,16 +961,20 @@
             padding: 8px 11px;
 
             border: 1px solid var(--line);
+
             background: white;
 
             font-size: 10px;
             font-weight: 800;
+
             letter-spacing: 0.6px;
         }
 
         .about-details {
             display: grid;
+
             grid-template-columns: repeat(2, 1fr);
+
             gap: 15px;
         }
 
@@ -712,16 +982,19 @@
             padding: 25px;
 
             background: white;
+
             border: 1px solid var(--line);
         }
 
         .detail-card h3 {
             margin-bottom: 8px;
+
             font-size: 14px;
         }
 
         .detail-card p {
             font-size: 13px;
+
             color: var(--muted);
         }
 
@@ -762,13 +1035,16 @@
             margin: 20px auto;
 
             font-size: clamp(45px, 7vw, 90px);
+
             line-height: 0.9;
+
             letter-spacing: -5px;
         }
 
         .contact p {
-            color: var(--muted);
             margin-bottom: 30px;
+
+            color: var(--muted);
         }
 
 
@@ -777,20 +1053,24 @@
         ========================================= */
 
         footer {
-            border-top: 1px solid var(--line);
-
             padding: 25px 0;
 
+            border-top: 1px solid var(--line);
+
             font-size: 11px;
+
             color: var(--muted);
         }
 
         .footer-container {
             max-width: 1200px;
+
             margin: auto;
+
             padding: 0 30px;
 
             display: flex;
+
             justify-content: space-between;
         }
 
@@ -807,11 +1087,13 @@
 
             .hero {
                 min-height: auto;
+
                 padding: 90px 0;
             }
 
             .hero-grid {
                 grid-template-columns: 1fr;
+
                 gap: 50px;
             }
 
@@ -821,7 +1103,9 @@
 
             .hero-meta {
                 border-left: none;
+
                 border-top: 1px solid var(--ink);
+
                 padding: 25px 0 0;
             }
 
@@ -833,13 +1117,24 @@
                 margin-top: 25px;
             }
 
-            .case-study {
-                grid-template-columns: 50px 1fr;
-                gap: 20px;
+            .featured-project {
+                grid-template-columns: 1fr;
             }
 
-            .case-right {
-                grid-column: 2;
+            .project-visual {
+                min-height: 430px;
+            }
+
+            .project-content {
+                padding: 40px;
+            }
+
+            .coming-soon {
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+
+                padding: 45px;
             }
 
             .intersection-grid {
@@ -853,13 +1148,16 @@
             .process-step,
             .process-step:not(:first-child) {
                 padding: 25px 0;
+
                 border-right: none;
+
                 border-bottom: 1px solid var(--line);
             }
 
             .requirements-grid,
             .about-grid {
                 grid-template-columns: 1fr;
+
                 gap: 50px;
             }
 
@@ -873,15 +1171,8 @@
 
         }
 
+
         @media (max-width: 550px) {
-
-            .nav-links {
-                gap: 15px;
-            }
-
-            .nav-links a:nth-child(2) {
-                display: none;
-            }
 
             .container {
                 padding: 0 20px;
@@ -891,24 +1182,46 @@
                 padding: 16px 20px;
             }
 
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a:nth-child(2) {
+                display: none;
+            }
+
             .hero h1 {
                 font-size: 58px;
             }
 
-            .case-study {
-                grid-template-columns: 1fr;
+            .project-visual {
+                min-height: 360px;
             }
 
-            .case-right {
-                grid-column: auto;
+            .visual-placeholder {
+                left: 20px;
+                right: 20px;
+                top: 70px;
+                bottom: 20px;
+            }
+
+            .project-content {
+                padding: 30px 24px;
             }
 
             .case-metrics {
-                gap: 20px;
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            .coming-soon {
+                padding: 35px 25px;
             }
 
             .requirement {
                 grid-template-columns: 1fr;
+
                 gap: 8px;
             }
 
@@ -918,6 +1231,7 @@
 
             .footer-container span {
                 display: block;
+
                 margin-bottom: 8px;
             }
 
@@ -930,7 +1244,9 @@
 <body>
 
 
-    <!-- NAVIGATION -->
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
 
     <nav>
 
@@ -942,13 +1258,21 @@
 
             <div class="nav-links">
 
-                <a href="#work">Work</a>
+                <a href="#work">
+                    Work
+                </a>
 
-                <a href="#approach">Approach</a>
+                <a href="#approach">
+                    Approach
+                </a>
 
-                <a href="#about">About</a>
+                <a href="#about">
+                    About
+                </a>
 
-                <a href="#contact">Contact</a>
+                <a href="#contact">
+                    Contact
+                </a>
 
             </div>
 
@@ -958,7 +1282,9 @@
 
 
 
-    <!-- HERO -->
+    <!-- =========================================
+         HERO
+    ========================================== -->
 
     <section class="hero">
 
@@ -985,9 +1311,13 @@
 
                     </p>
 
+
                     <div class="hero-buttons">
 
-                        <a href="#work" class="button primary">
+                        <a
+                            href="#work"
+                            class="button primary"
+                        >
                             Explore My Work
                         </a>
 
@@ -1043,27 +1373,45 @@
 
 
 
-    <!-- TAG STRIP -->
+    <!-- =========================================
+         TAG STRIP
+    ========================================== -->
 
     <div class="tag-strip">
 
         <div class="tag-track">
 
-            <div class="tag">Product Strategy</div>
+            <div class="tag">
+                Product Strategy
+            </div>
 
-            <div class="tag">Business Requirements</div>
+            <div class="tag">
+                Business Requirements
+            </div>
 
-            <div class="tag">Customer Experience</div>
+            <div class="tag">
+                Customer Experience
+            </div>
 
-            <div class="tag">Technical Discovery</div>
+            <div class="tag">
+                Technical Discovery
+            </div>
 
-            <div class="tag">Agile Delivery</div>
+            <div class="tag">
+                Agile Delivery
+            </div>
 
-            <div class="tag">UX Collaboration</div>
+            <div class="tag">
+                UX Collaboration
+            </div>
 
-            <div class="tag">Marketing Technology</div>
+            <div class="tag">
+                Marketing Technology
+            </div>
 
-            <div class="tag">Loyalty</div>
+            <div class="tag">
+                Loyalty
+            </div>
 
         </div>
 
@@ -1071,11 +1419,14 @@
 
 
 
-    <!-- SELECTED WORK -->
+    <!-- =========================================
+         SELECTED WORK
+    ========================================== -->
 
     <section id="work">
 
         <div class="container">
+
 
             <div class="work-header">
 
@@ -1091,11 +1442,13 @@
 
                 </div>
 
+
                 <p class="work-intro">
 
-                    A selection of digital product initiatives spanning
-                    loyalty, customer engagement, marketing technology,
-                    integrations, and self-service experiences.
+                    A closer look at two product initiatives that
+                    demonstrate how I work across business requirements,
+                    customer experience, technical constraints,
+                    and delivery.
 
                 </p>
 
@@ -1103,82 +1456,40 @@
 
 
 
-            <!-- CASE STUDY 01 -->
+            <!-- =====================================
+                 PROJECT 01
+                 LOYALTY TIER EXPERIENCE
+            ====================================== -->
 
-            <article class="case-study">
+            <article class="featured-project">
 
-                <div class="case-number">
-                    01
-                </div>
 
-                <div>
+                <div class="project-visual loyalty">
 
-                    <div class="case-type">
-                        Loyalty / Customer Experience / Mobile
-                    </div>
-
-                    <h3>
-
-                        <a href="loyalty-tier-experience.html">
-                            Loyalty Tier Experience
-                        </a>
-
-                    </h3>
-
-                    <p class="case-description">
-
-                        Reimagined the digital loyalty experience during
-                        the program's first-ever tier expiration, helping
-                        customers understand a new earning structure and
-                        track progress toward their next status.
-
-                    </p>
-
-                    <div class="case-tags">
-
-                        <span class="case-tag">
-                            Product Strategy
-                        </span>
-
-                        <span class="case-tag">
-                            UX
-                        </span>
-
-                        <span class="case-tag">
-                            Loyalty
-                        </span>
-
-                        <span class="case-tag">
-                            Technical Delivery
-                        </span>
-
+                    <div class="project-visual-label">
+                        Case Study / 01
                     </div>
 
 
-                    <div class="case-metrics">
+                    <div class="visual-placeholder">
 
-                        <div>
+                        <div class="visual-placeholder-content">
 
-                            <div class="metric-number">
-                                800K+
+                            <div class="visual-placeholder-small">
+                                Recommended Visual
                             </div>
 
-                            <div class="metric-label">
-                                Annual Unique Users
-                            </div>
+                            <h4>
+                                Loyalty Status Experience
+                            </h4>
 
-                        </div>
+                            <p>
 
+                                Add a polished mobile app mockup here
+                                showing the Status page, tier progress,
+                                or next-tier experience.
 
-                        <div>
-
-                            <div class="metric-number">
-                                6M+
-                            </div>
-
-                            <div class="metric-label">
-                                Annual Visits
-                            </div>
+                            </p>
 
                         </div>
 
@@ -1187,19 +1498,111 @@
                 </div>
 
 
-                <div class="case-right">
 
-                    <div class="case-question">
+                <div class="project-content">
 
-                        <strong>
-                            Product Question
-                        </strong>
 
-                        How might we introduce a major loyalty
-                        program change clearly while keeping customers
-                        engaged and motivated to earn their next status?
+                    <div>
+
+                        <div class="case-number">
+                            01 / LOYALTY
+                        </div>
+
+                        <div class="case-type">
+                            Customer Experience / Loyalty / Mobile + Web
+                        </div>
+
+
+                        <h3>
+
+                            <a href="loyalty-tier-experience.html">
+                                Loyalty Tier Experience
+                            </a>
+
+                        </h3>
+
+
+                        <p class="case-description">
+
+                            Reimagined the digital loyalty experience
+                            during the program's first-ever tier expiration,
+                            helping customers understand a new earning
+                            structure and track progress toward their
+                            next status.
+
+                        </p>
+
+
+                        <div class="case-tags">
+
+                            <span class="case-tag">
+                                Product Strategy
+                            </span>
+
+                            <span class="case-tag">
+                                Business Requirements
+                            </span>
+
+                            <span class="case-tag">
+                                UX
+                            </span>
+
+                            <span class="case-tag">
+                                Loyalty
+                            </span>
+
+                            <span class="case-tag">
+                                Technical Delivery
+                            </span>
+
+                        </div>
+
+
+                        <div class="case-metrics">
+
+                            <div>
+
+                                <div class="metric-number">
+                                    800K+
+                                </div>
+
+                                <div class="metric-label">
+                                    Annual Unique Users
+                                </div>
+
+                            </div>
+
+
+                            <div>
+
+                                <div class="metric-number">
+                                    6M+
+                                </div>
+
+                                <div class="metric-label">
+                                    Annual Visits
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-question">
+
+                            <strong>
+                                Product Question
+                            </strong>
+
+                            How might we introduce a major loyalty
+                            program change clearly while keeping
+                            customers engaged and motivated to earn
+                            their next status?
+
+                        </div>
 
                     </div>
+
 
                     <a
                         href="loyalty-tier-experience.html"
@@ -1208,93 +1611,48 @@
                         View Case Study →
                     </a>
 
+
                 </div>
 
             </article>
 
 
 
-            <!-- CASE STUDY 02 -->
+            <!-- =====================================
+                 PROJECT 02
+                 CUSTOMER ENGAGEMENT PLATFORM
+            ====================================== -->
 
-            <article class="case-study">
-
-                <div class="case-number">
-                    02
-                </div>
-
-                <div>
-
-                    <div class="case-type">
-                        MarTech / Platform / Personalization
-                    </div>
-
-                    <h3>
-
-                        <a href="customer-engagement-platform.html">
-                            Customer Engagement Platform
-                        </a>
-
-                    </h3>
-
-                    <p class="case-description">
-
-                        Led the end-to-end product implementation of
-                        Braze, transforming a fragmented communication
-                        ecosystem into a centralized platform for targeted,
-                        cross-channel customer journeys.
-
-                    </p>
+            <article class="featured-project">
 
 
-                    <div class="case-tags">
+                <div class="project-visual engagement">
 
-                        <span class="case-tag">
-                            Platform Strategy
-                        </span>
-
-                        <span class="case-tag">
-                            Business Requirements
-                        </span>
-
-                        <span class="case-tag">
-                            Technical Discovery
-                        </span>
-
-                        <span class="case-tag">
-                            MarTech
-                        </span>
-
-                        <span class="case-tag">
-                            Mobile + Web
-                        </span>
-
+                    <div class="project-visual-label">
+                        Case Study / 02
                     </div>
 
 
-                    <div class="case-metrics">
+                    <div class="visual-placeholder">
 
-                        <div>
+                        <div class="visual-placeholder-content">
 
-                            <div class="metric-number">
-                                ~1 MO
+                            <div class="visual-placeholder-small">
+                                Recommended Visual
                             </div>
 
-                            <div class="metric-label">
-                                Initial Release
-                            </div>
+                            <h4>
+                                Connected Customer Journey
+                            </h4>
 
-                        </div>
+                            <p>
 
+                                Add a visual showing customer data
+                                flowing into Braze and then activating
+                                email, push, inbox, content, and
+                                personalized journeys.
 
-                        <div>
-
-                            <div class="metric-number">
-                                ~10 MO
-                            </div>
-
-                            <div class="metric-label">
-                                Platform Rollout
-                            </div>
+                            </p>
 
                         </div>
 
@@ -1303,18 +1661,108 @@
                 </div>
 
 
-                <div class="case-right">
 
-                    <div class="case-question">
+                <div class="project-content">
 
-                        <strong>
-                            Product Question
-                        </strong>
 
-                        How might we centralize customer engagement
-                        while giving Marketing better targeting,
-                        greater flexibility, and less dependency
-                        on development?
+                    <div>
+
+                        <div class="case-number">
+                            02 / MARTECH
+                        </div>
+
+                        <div class="case-type">
+                            Platform / Personalization / Customer Engagement
+                        </div>
+
+
+                        <h3>
+
+                            <a href="customer-engagement-platform.html">
+                                Customer Engagement Platform
+                            </a>
+
+                        </h3>
+
+
+                        <p class="case-description">
+
+                            Led the end-to-end product implementation
+                            of Braze, transforming a fragmented
+                            communications ecosystem into a centralized
+                            platform for targeted, cross-channel
+                            customer journeys.
+
+                        </p>
+
+
+                        <div class="case-tags">
+
+                            <span class="case-tag">
+                                Platform Strategy
+                            </span>
+
+                            <span class="case-tag">
+                                Business Requirements
+                            </span>
+
+                            <span class="case-tag">
+                                Technical Discovery
+                            </span>
+
+                            <span class="case-tag">
+                                MarTech
+                            </span>
+
+                            <span class="case-tag">
+                                Mobile + Web
+                            </span>
+
+                        </div>
+
+
+                        <div class="case-metrics">
+
+                            <div>
+
+                                <div class="metric-number">
+                                    ~1 MO
+                                </div>
+
+                                <div class="metric-label">
+                                    Initial Release
+                                </div>
+
+                            </div>
+
+
+                            <div>
+
+                                <div class="metric-number">
+                                    ~10 MO
+                                </div>
+
+                                <div class="metric-label">
+                                    Platform Rollout
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-question">
+
+                            <strong>
+                                Product Question
+                            </strong>
+
+                            How might we centralize customer engagement
+                            while giving Marketing better targeting,
+                            greater flexibility, and less dependency
+                            on development?
+
+                        </div>
 
                     </div>
 
@@ -1326,160 +1774,75 @@
                         View Case Study →
                     </a>
 
+
                 </div>
 
             </article>
 
 
 
-            <!-- CASE STUDY 03 -->
+            <!-- =====================================
+                 COMING SOON
+            ====================================== -->
 
-            <article class="case-study">
+            <div class="coming-soon">
 
-                <div class="case-number">
-                    03
-                </div>
 
                 <div>
 
-                    <div class="case-type">
-                        Integration / Loyalty
+                    <div class="section-label">
+                        More Work
                     </div>
 
                     <h3>
-                        ID.me Integration
+                        More case studies coming soon.
                     </h3>
 
-                    <p class="case-description">
+                </div>
 
-                        Launched a third-party verification integration
-                        that enabled targeted loyalty offers for verified
-                        community groups while creating a new customer
-                        acquisition opportunity.
+
+                <div class="coming-soon-copy">
+
+                    <p>
+
+                        I'm continuing to document additional
+                        product work across integrations,
+                        customer experience, loyalty,
+                        personalization, and digital platforms.
+
+                    </p>
+
+                    <p>
+
+                        For now, these two case studies represent
+                        the areas where I spend most of my time:
+                        translating complex business needs into
+                        customer-facing products and scalable
+                        platform capabilities.
 
                     </p>
 
 
-                    <div class="case-tags">
+                    <div class="coming-soon-tags">
 
-                        <span class="case-tag">
-                            Integration
+                        <span class="coming-tag">
+                            Integrations
                         </span>
 
-                        <span class="case-tag">
-                            Customer Segmentation
+                        <span class="coming-tag">
+                            Digital Experience
                         </span>
 
-                        <span class="case-tag">
+                        <span class="coming-tag">
                             Loyalty
                         </span>
 
-                        <span class="case-tag">
-                            Technical Delivery
+                        <span class="coming-tag">
+                            Personalization
                         </span>
 
-                    </div>
-
-
-                    <div class="case-metrics">
-
-                        <div>
-
-                            <div class="metric-number">
-                                35K+
-                            </div>
-
-                            <div class="metric-label">
-                                Verified Members
-                            </div>
-
-                        </div>
-
-
-                        <div>
-
-                            <div class="metric-number">
-                                4K+
-                            </div>
-
-                            <div class="metric-label">
-                                Net-New Users
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="case-right">
-
-                    <div class="case-question">
-
-                        <strong>
-                            Product Question
-                        </strong>
-
-                        How might we use customer verification
-                        to create a more relevant loyalty experience
-                        while reaching new customers?
-
-                    </div>
-
-                    <div class="case-link">
-                        Case Study Coming Soon
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- CASE STUDY 04 -->
-
-            <article class="case-study">
-
-                <div class="case-number">
-                    04
-                </div>
-
-                <div>
-
-                    <div class="case-type">
-                        Internal Platform / Marketing
-                    </div>
-
-                    <h3>
-                        Marketing Activation Platform
-                    </h3>
-
-                    <p class="case-description">
-
-                        Helped create self-service capabilities that
-                        enabled Marketing teams to launch digital
-                        campaigns and experiences with less dependency
-                        on development.
-
-                    </p>
-
-                    <div class="case-tags">
-
-                        <span class="case-tag">
-                            Platform
-                        </span>
-
-                        <span class="case-tag">
-                            Requirements
-                        </span>
-
-                        <span class="case-tag">
-                            Self-Service
-                        </span>
-
-                        <span class="case-tag">
-                            Efficiency
+                        <span class="coming-tag">
+                            Platform Strategy
                         </span>
 
                     </div>
@@ -1487,27 +1850,8 @@
                 </div>
 
 
-                <div class="case-right">
+            </div>
 
-                    <div class="case-question">
-
-                        <strong>
-                            Product Question
-                        </strong>
-
-                        How might we remove unnecessary technical
-                        dependencies while maintaining a consistent
-                        digital experience?
-
-                    </div>
-
-                    <div class="case-link">
-                        Case Study Coming Soon
-                    </div>
-
-                </div>
-
-            </article>
 
         </div>
 
@@ -1515,7 +1859,9 @@
 
 
 
-    <!-- PRODUCT INTERSECTION -->
+    <!-- =========================================
+         PRODUCT INTERSECTION
+    ========================================== -->
 
     <section class="intersection">
 
@@ -1532,6 +1878,7 @@
 
             <div class="intersection-grid">
 
+
                 <div class="intersection-card">
 
                     <div class="intersection-number">
@@ -1543,9 +1890,11 @@
                     </h3>
 
                     <p>
+
                         What are we trying to accomplish?
                         What problem is worth solving?
                         How will we define success?
+
                     </p>
 
                 </div>
@@ -1562,9 +1911,11 @@
                     </h3>
 
                     <p>
+
                         Who are we solving for?
                         What do they need?
                         Where are we creating friction?
+
                     </p>
 
                 </div>
@@ -1581,12 +1932,15 @@
                     </h3>
 
                     <p>
+
                         What can we build?
                         What integrations are required?
                         What constraints and dependencies matter?
+
                     </p>
 
                 </div>
+
 
             </div>
 
@@ -1605,7 +1959,9 @@
 
 
 
-    <!-- PRODUCT APPROACH -->
+    <!-- =========================================
+         HOW I WORK
+    ========================================== -->
 
     <section id="approach">
 
@@ -1642,8 +1998,10 @@
                     </h3>
 
                     <p>
-                        Define the customer problem, business objective,
-                        context, and opportunity.
+
+                        Define the customer problem, business
+                        objective, context, and opportunity.
+
                     </p>
 
                 </div>
@@ -1660,8 +2018,11 @@
                     </h3>
 
                     <p>
-                        Turn business requirements and customer needs
-                        into clear product and technical requirements.
+
+                        Turn business requirements and customer
+                        needs into clear product and technical
+                        requirements.
+
                     </p>
 
                 </div>
@@ -1678,8 +2039,11 @@
                     </h3>
 
                     <p>
-                        Align stakeholders around value, dependencies,
-                        technical realities, and tradeoffs.
+
+                        Align stakeholders around value,
+                        dependencies, technical realities,
+                        and tradeoffs.
+
                     </p>
 
                 </div>
@@ -1696,8 +2060,11 @@
                     </h3>
 
                     <p>
-                        Partner with UX and Engineering to turn
-                        requirements into real customer experiences.
+
+                        Partner with UX and Engineering
+                        to turn requirements into real
+                        customer experiences.
+
                     </p>
 
                 </div>
@@ -1714,11 +2081,15 @@
                     </h3>
 
                     <p>
-                        Measure outcomes, gather feedback, uncover
-                        constraints, and determine what comes next.
+
+                        Measure outcomes, gather feedback,
+                        uncover constraints, and determine
+                        what comes next.
+
                     </p>
 
                 </div>
+
 
             </div>
 
@@ -1728,7 +2099,9 @@
 
 
 
-    <!-- REQUIREMENTS -->
+    <!-- =========================================
+         MY SWEET SPOT
+    ========================================== -->
 
     <section class="requirements">
 
@@ -1812,8 +2185,10 @@
                         </div>
 
                         <div class="requirement-text">
-                            What systems, integrations, constraints,
-                            and dependencies matter?
+
+                            What systems, integrations,
+                            constraints, and dependencies matter?
+
                         </div>
 
                     </div>
@@ -1826,7 +2201,10 @@
                         </div>
 
                         <div class="requirement-text">
-                            What do we prioritize, phase, simplify, or challenge?
+
+                            What do we prioritize, phase,
+                            simplify, or challenge?
+
                         </div>
 
                     </div>
@@ -1855,7 +2233,9 @@
 
 
 
-    <!-- ABOUT -->
+    <!-- =========================================
+         ABOUT
+    ========================================== -->
 
     <section id="about">
 
@@ -1892,18 +2272,19 @@
 
                         I love the balance between the creative,
                         analytical, and technical sides of product:
-                        understanding a customer problem, thinking through
-                        the experience, defining the requirements, and
-                        working with technology to make it real.
+                        understanding a customer problem, thinking
+                        through the experience, defining the requirements,
+                        and working with technology to make it real.
 
                     </p>
 
                     <p>
 
-                        I'm currently focused on growing into a Product
-                        Manager role where I can take on broader product
-                        strategy while continuing to work at the intersection
-                        of customer needs, business outcomes, and technology.
+                        I'm focused on growing into Product Manager
+                        roles where I can take on broader product
+                        strategy while continuing to work at the
+                        intersection of customer needs, business
+                        outcomes, and technology.
 
                     </p>
 
@@ -1933,7 +2314,10 @@
             </div>
 
 
-            <div class="about-details" style="margin-top:70px;">
+            <div
+                class="about-details"
+                style="margin-top:70px;"
+            >
 
 
                 <div class="detail-card">
@@ -1943,9 +2327,12 @@
                     </h3>
 
                     <p>
-                        Product strategy, roadmaps, backlog prioritization,
-                        requirements, user stories, acceptance criteria,
+
+                        Product strategy, roadmaps,
+                        backlog prioritization, requirements,
+                        user stories, acceptance criteria,
                         tradeoffs, and Agile delivery.
+
                     </p>
 
                 </div>
@@ -1958,8 +2345,11 @@
                     </h3>
 
                     <p>
-                        Digital experiences, loyalty, personalization,
-                        customer journeys, and voice-of-customer thinking.
+
+                        Digital experiences, loyalty,
+                        personalization, customer journeys,
+                        and voice-of-customer thinking.
+
                     </p>
 
                 </div>
@@ -1972,9 +2362,12 @@
                     </h3>
 
                     <p>
-                        Marketing technology, integrations, CMS,
-                        SDK-driven capabilities, customer engagement
-                        platforms, and technical dependencies.
+
+                        Marketing technology, integrations,
+                        CMS, SDK-driven capabilities,
+                        customer engagement platforms,
+                        and technical dependencies.
+
                     </p>
 
                 </div>
@@ -1987,12 +2380,16 @@
                     </h3>
 
                     <p>
-                        UX, Engineering, Marketing, architects,
-                        external partners, stakeholders, and
-                        cross-functional Agile teams.
+
+                        UX, Engineering, Marketing,
+                        architects, external partners,
+                        stakeholders, and cross-functional
+                        Agile teams.
+
                     </p>
 
                 </div>
+
 
             </div>
 
@@ -2002,7 +2399,9 @@
 
 
 
-    <!-- RESUME -->
+    <!-- =========================================
+         RESUME
+    ========================================== -->
 
     <section class="resume">
 
@@ -2018,14 +2417,18 @@
 
             <p>
 
-                Explore my professional experience, certifications,
-                and the products I've helped bring to life.
+                Explore my professional experience,
+                certifications, and the products I've
+                helped bring to life.
 
             </p>
 
             <!-- Replace # with your resume PDF link -->
 
-            <a href="#" class="button primary">
+            <a
+                href="#"
+                class="button primary"
+            >
                 View Resume →
             </a>
 
@@ -2035,9 +2438,14 @@
 
 
 
-    <!-- CONTACT -->
+    <!-- =========================================
+         CONTACT
+    ========================================== -->
 
-    <section id="contact" class="contact">
+    <section
+        id="contact"
+        class="contact"
+    >
 
         <div class="container">
 
@@ -2050,8 +2458,10 @@
             </h2>
 
             <p>
+
                 Interested in product, customer experience,
                 or building better digital experiences?
+
             </p>
 
             <a
@@ -2068,7 +2478,9 @@
 
 
 
-    <!-- FOOTER -->
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
 
     <footer>
 
