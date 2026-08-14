@@ -1,0 +1,2875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Engagement Platform | Julia Campisano</title>
+
+    <meta
+        name="description"
+        content="Product case study by Julia Campisano: building a centralized customer engagement platform powered by Braze."
+    >
+
+    <style>
+
+        /* =========================================
+           BASE
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --cream: #f7f5f0;
+            --white: #ffffff;
+            --ink: #171717;
+            --muted: #696969;
+            --line: #dedbd4;
+            --lavender: #c9b9ff;
+            --lavender-dark: #7257c7;
+            --soft-lavender: #eee9ff;
+            --blue: #d9e9ff;
+            --green: #dcebdc;
+            --soft-yellow: #f5edc9;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================================
+           GRID BACKGROUND
+        ========================================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.35;
+            z-index: -1;
+
+            background-image:
+                linear-gradient(
+                    to right,
+                    rgba(0,0,0,0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 80px 80px;
+        }
+
+        /* =========================================
+           NAV
+        ========================================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background: rgba(247,245,240,0.92);
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--lavender-dark);
+        }
+
+        .back-link {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--muted);
+        }
+
+        .back-link:hover {
+            color: var(--ink);
+        }
+
+        /* =========================================
+           GENERAL
+        ========================================= */
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 30px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+
+            color: var(--lavender-dark);
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--lavender-dark);
+        }
+
+        .section-label {
+            margin-bottom: 18px;
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+        .section-title {
+            max-width: 850px;
+
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 0.98;
+            letter-spacing: -4px;
+        }
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .case-hero {
+            padding: 120px 0 90px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 0.6fr;
+            gap: 80px;
+            align-items: end;
+        }
+
+        .case-hero h1 {
+            max-width: 950px;
+
+            margin: 25px 0 30px;
+
+            font-size: clamp(58px, 9vw, 115px);
+            line-height: 0.87;
+            letter-spacing: -7px;
+        }
+
+        .case-hero h1 em {
+            font-style: normal;
+            color: var(--lavender-dark);
+        }
+
+        .hero-description {
+            max-width: 720px;
+
+            font-size: 20px;
+            color: var(--muted);
+        }
+
+        .hero-meta {
+            border-left: 2px solid var(--ink);
+            padding-left: 25px;
+        }
+
+        .meta-label {
+            margin-bottom: 6px;
+
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+        .meta-value {
+            margin-bottom: 25px;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* =========================================
+           SNAPSHOT
+        ========================================= */
+
+        .snapshot {
+            border-top: 1px solid var(--ink);
+            border-bottom: 1px solid var(--ink);
+
+            background: white;
+        }
+
+        .snapshot-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .snapshot-card {
+            padding: 30px 25px;
+
+            border-right: 1px solid var(--line);
+        }
+
+        .snapshot-card:last-child {
+            border-right: none;
+        }
+
+        .snapshot-label {
+            margin-bottom: 10px;
+
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+        .snapshot-value {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        /* =========================================
+           BEFORE / AFTER
+        ========================================= */
+
+        .before-after {
+            background: var(--soft-lavender);
+        }
+
+        .before-after-intro {
+            max-width: 760px;
+            margin: 25px 0 55px;
+
+            font-size: 18px;
+            color: #555;
+        }
+
+        .system-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .system-card {
+            padding: 35px;
+
+            background: white;
+            border: 1px solid var(--line);
+        }
+
+        .system-card.after {
+            background: var(--ink);
+            color: white;
+        }
+
+        .system-label {
+            margin-bottom: 30px;
+
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            color: var(--lavender-dark);
+        }
+
+        .system-card.after .system-label {
+            color: var(--lavender);
+        }
+
+        .system-card h3 {
+            margin-bottom: 25px;
+
+            font-size: 28px;
+            letter-spacing: -1px;
+        }
+
+        .system-flow {
+            display: grid;
+            gap: 10px;
+        }
+
+        .flow-item {
+            padding: 14px 16px;
+
+            border: 1px solid var(--line);
+            background: var(--cream);
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .system-card.after .flow-item {
+            border-color: #444;
+            background: #242424;
+            color: #ddd;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            font-size: 18px;
+            color: var(--lavender-dark);
+        }
+
+        .system-card.after .flow-arrow {
+            color: var(--lavender);
+        }
+
+        /* =========================================
+           CASE SECTION
+        ========================================= */
+
+        .case-section {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 90px;
+            align-items: start;
+        }
+
+        .case-heading {
+            position: sticky;
+            top: 100px;
+        }
+
+        .case-heading h2 {
+            max-width: 420px;
+
+            font-size: clamp(38px, 5vw, 60px);
+            line-height: 0.97;
+            letter-spacing: -3px;
+        }
+
+        .case-copy {
+            max-width: 780px;
+
+            font-size: 17px;
+            color: #555;
+        }
+
+        .case-copy p {
+            margin-bottom: 22px;
+        }
+
+        .callout {
+            margin-top: 35px;
+            padding: 30px;
+
+            background: var(--soft-lavender);
+            border-left: 4px solid var(--lavender-dark);
+        }
+
+        .callout-label {
+            margin-bottom: 10px;
+
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+
+            color: var(--lavender-dark);
+        }
+
+        .callout p {
+            margin: 0;
+
+            font-size: 20px;
+            line-height: 1.4;
+            color: var(--ink);
+        }
+
+        /* =========================================
+           REQUIREMENTS
+        ========================================= */
+
+        .requirements-list {
+            margin-top: 35px;
+            border-top: 1px solid var(--ink);
+        }
+
+        .requirement-row {
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            gap: 30px;
+
+            padding: 22px 0;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .requirement-number {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--lavender-dark);
+        }
+
+        .requirement-row p {
+            margin: 0;
+
+            font-size: 15px;
+            color: var(--ink);
+        }
+
+        /* =========================================
+           ROLE
+        ========================================= */
+
+        .role-section {
+            background: var(--ink);
+            color: white;
+        }
+
+        .role-section .section-label {
+            color: #999;
+        }
+
+        .role-section .case-heading h2 {
+            color: white;
+        }
+
+        .role-copy {
+            color: #bbb;
+        }
+
+        .role-copy p {
+            margin-bottom: 25px;
+        }
+
+        .role-list {
+            margin-top: 35px;
+            border-top: 1px solid #444;
+        }
+
+        .role-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 30px;
+
+            padding: 20px 0;
+
+            border-bottom: 1px solid #333;
+        }
+
+        .role-item strong {
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            color: var(--lavender);
+        }
+
+        .role-item span {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* =========================================
+           ROADMAP
+        ========================================= */
+
+        .roadmap {
+            background: var(--blue);
+        }
+
+        .roadmap-intro {
+            max-width: 760px;
+
+            margin: 25px 0 55px;
+
+            font-size: 18px;
+            color: #555;
+        }
+
+        .roadmap-track {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+
+            border-top: 1px solid var(--ink);
+        }
+
+        .roadmap-step {
+            padding: 30px 20px 30px 0;
+
+            border-right: 1px solid rgba(0,0,0,0.15);
+        }
+
+        .roadmap-step:not(:first-child) {
+            padding-left: 20px;
+        }
+
+        .roadmap-step:last-child {
+            border-right: none;
+        }
+
+        .roadmap-number {
+            margin-bottom: 45px;
+
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--lavender-dark);
+        }
+
+        .roadmap-step h3 {
+            margin-bottom: 10px;
+
+            font-size: 19px;
+        }
+
+        .roadmap-step p {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* =========================================
+           PRODUCT DECISIONS
+        ========================================= */
+
+        .decision-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+
+            margin-top: 40px;
+        }
+
+        .decision-card {
+            padding: 30px;
+
+            min-height: 240px;
+
+            background: white;
+            border: 1px solid var(--line);
+        }
+
+        .decision-number {
+            margin-bottom: 45px;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            color: var(--lavender-dark);
+        }
+
+        .decision-card h3 {
+            margin-bottom: 12px;
+
+            font-size: 23px;
+            letter-spacing: -0.8px;
+        }
+
+        .decision-card p {
+            margin: 0;
+
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* =========================================
+           CUSTOMER JOURNEY
+        ========================================= */
+
+        .journey {
+            background: var(--soft-yellow);
+        }
+
+        .journey-flow {
+            margin-top: 50px;
+
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            align-items: center;
+        }
+
+        .journey-step {
+            min-height: 145px;
+
+            padding: 22px;
+
+            background: white;
+            border: 1px solid rgba(0,0,0,0.12);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .journey-step span {
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            color: var(--lavender-dark);
+        }
+
+        .journey-step strong {
+            font-size: 18px;
+        }
+
+        .journey-arrow {
+            display: none;
+        }
+
+        .journey-note {
+            margin-top: 25px;
+
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* =========================================
+           TECHNICAL
+        ========================================= */
+
+        .technical-boxes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+
+            margin-top: 40px;
+        }
+
+        .technical-card {
+            padding: 30px;
+
+            background: white;
+            border: 1px solid var(--line);
+        }
+
+        .technical-label {
+            margin-bottom: 30px;
+
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+
+            color: var(--lavender-dark);
+        }
+
+        .technical-card h3 {
+            margin-bottom: 12px;
+
+            font-size: 22px;
+        }
+
+        .technical-card p {
+            margin: 0;
+
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .technical-card.warning {
+            background: var(--soft-lavender);
+        }
+
+        /* =========================================
+           DELIVERY
+        ========================================= */
+
+        .delivery {
+            background: white;
+        }
+
+        .delivery-timeline {
+            margin-top: 45px;
+            border-top: 1px solid var(--ink);
+        }
+
+        .delivery-row {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 40px;
+
+            padding: 28px 0;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .delivery-time {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            color: var(--lavender-dark);
+        }
+
+        .delivery-content h3 {
+            margin-bottom: 8px;
+
+            font-size: 20px;
+        }
+
+        .delivery-content p {
+            margin: 0;
+
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* =========================================
+           TESTING
+        ========================================= */
+
+        .testing {
+            background: var(--soft-lavender);
+        }
+
+        .testing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+
+            margin-top: 45px;
+
+            background: rgba(0,0,0,0.12);
+        }
+
+        .testing-card {
+            padding: 28px;
+            background: rgba(255,255,255,0.65);
+        }
+
+        .testing-card span {
+            display: block;
+
+            margin-bottom: 35px;
+
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            color: var(--lavender-dark);
+        }
+
+        .testing-card h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .testing-card p {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* =========================================
+           OUTCOME
+        ========================================= */
+
+        .outcome {
+            background: var(--ink);
+            color: white;
+        }
+
+        .outcome .section-label {
+            color: #999;
+        }
+
+        .outcome-grid {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 90px;
+            align-items: start;
+        }
+
+        .outcome-title {
+            font-size: clamp(45px, 6vw, 75px);
+            line-height: 0.93;
+            letter-spacing: -4px;
+        }
+
+        .outcome-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+
+            background: #444;
+        }
+
+        .outcome-card {
+            padding: 32px;
+
+            background: #202020;
+        }
+
+        .outcome-number {
+            margin-bottom: 18px;
+
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -2px;
+
+            color: var(--lavender);
+        }
+
+        .outcome-card h3 {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+        }
+
+        .outcome-card p {
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        .metrics-placeholder {
+            margin-top: 20px;
+            padding: 18px;
+
+            border: 1px dashed #555;
+
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* =========================================
+           LEARNINGS
+        ========================================= */
+
+        .learning-list {
+            margin-top: 40px;
+            border-top: 1px solid var(--ink);
+        }
+
+        .learning {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 30px;
+
+            padding: 28px 0;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .learning-number {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--lavender-dark);
+        }
+
+        .learning h3 {
+            margin-bottom: 8px;
+
+            font-size: 21px;
+        }
+
+        .learning p {
+            margin: 0;
+
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================================
+           NEXT
+        ========================================= */
+
+        .next-project {
+            text-align: center;
+        }
+
+        .next-project h2 {
+            max-width: 760px;
+
+            margin: 22px auto 30px;
+
+            font-size: clamp(45px, 6vw, 75px);
+            line-height: 0.95;
+            letter-spacing: -4px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 13px 21px;
+
+            border: 1px solid var(--ink);
+            border-radius: 3px;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .button.primary {
+            background: var(--ink);
+            color: white;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            border-top: 1px solid var(--line);
+
+            padding: 25px 0;
+
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 30px;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero-grid,
+            .case-grid,
+            .outcome-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .case-heading {
+                position: static;
+            }
+
+            .hero-meta {
+                border-left: none;
+                border-top: 1px solid var(--ink);
+                padding: 25px 0 0;
+            }
+
+            .snapshot-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .system-grid,
+            .decision-grid,
+            .technical-boxes {
+                grid-template-columns: 1fr;
+            }
+
+            .roadmap-track {
+                grid-template-columns: 1fr;
+            }
+
+            .roadmap-step,
+            .roadmap-step:not(:first-child) {
+                padding: 25px 0;
+                border-right: none;
+                border-bottom: 1px solid rgba(0,0,0,0.15);
+            }
+
+            .journey-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .testing-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 550px) {
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav-container {
+                padding: 16px 20px;
+            }
+
+            .case-hero h1 {
+                font-size: 58px;
+                letter-spacing: -4px;
+            }
+
+            .snapshot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .snapshot-card {
+                border-right: none;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .role-item,
+            .requirement-row,
+            .delivery-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .testing-grid,
+            .outcome-content {
+                grid-template-columns: 1fr;
+            }
+
+            .learning {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .footer-container {
+                display: block;
+            }
+
+            .footer-container span {
+                display: block;
+                margin-bottom: 8px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                JC<span>.</span>
+            </a>
+
+            <a href="index.html#work" class="back-link">
+                ← Back to Selected Work
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="case-hero">
+
+        <div class="container">
+
+            <div class="hero-grid">
+
+                <div>
+
+                    <div class="eyebrow">
+                        Marketing Technology / Platform / Personalization
+                    </div>
+
+                    <h1>
+                        Customer Engagement
+                        <em>Platform.</em>
+                    </h1>
+
+                    <p class="hero-description">
+
+                        Turning a fragmented communications ecosystem into
+                        a centralized product capability that gave Marketing
+                        more control over how, when, and where we engaged customers.
+
+                    </p>
+
+                </div>
+
+
+                <div class="hero-meta">
+
+                    <div class="meta-label">
+                        Platform
+                    </div>
+
+                    <div class="meta-value">
+                        Braze
+                    </div>
+
+
+                    <div class="meta-label">
+                        Role
+                    </div>
+
+                    <div class="meta-value">
+                        Solo Product Owner
+                    </div>
+
+
+                    <div class="meta-label">
+                        Scope
+                    </div>
+
+                    <div class="meta-value">
+                        Mobile + Web + MarTech
+                    </div>
+
+
+                    <div class="meta-label">
+                        Ownership
+                    </div>
+
+                    <div class="meta-value">
+                        Product SME + Ongoing Enhancements
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SNAPSHOT -->
+
+    <section class="snapshot">
+
+        <div class="container">
+
+            <div class="snapshot-grid">
+
+                <div class="snapshot-card">
+
+                    <div class="snapshot-label">
+                        Initial Release
+                    </div>
+
+                    <div class="snapshot-value">
+                        ~1 Month
+                    </div>
+
+                </div>
+
+
+                <div class="snapshot-card">
+
+                    <div class="snapshot-label">
+                        Broader Rollout
+                    </div>
+
+                    <div class="snapshot-value">
+                        ~10 Months
+                    </div>
+
+                </div>
+
+
+                <div class="snapshot-card">
+
+                    <div class="snapshot-label">
+                        Core Channels
+                    </div>
+
+                    <div class="snapshot-value">
+                        Email · Push · Inbox · Content
+                    </div>
+
+                </div>
+
+
+                <div class="snapshot-card">
+
+                    <div class="snapshot-label">
+                        Product Model
+                    </div>
+
+                    <div class="snapshot-value">
+                        Phased Platform Delivery
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BEFORE / AFTER -->
+
+    <section class="before-after">
+
+        <div class="container">
+
+            <div class="section-label">
+                01 / Before + After
+            </div>
+
+            <h2 class="section-title">
+                From fragmented messaging to connected customer journeys.
+            </h2>
+
+            <p class="before-after-intro">
+
+                Before Braze, different communications lived across
+                different systems. Marketing had to understand which
+                platform powered each touchpoint, targeting was inconsistent,
+                and some digital content changes required development.
+
+            </p>
+
+
+            <div class="system-grid">
+
+
+                <div class="system-card">
+
+                    <div class="system-label">
+                        Before
+                    </div>
+
+                    <h3>
+                        Fragmented communication
+                    </h3>
+
+
+                    <div class="system-flow">
+
+                        <div class="flow-item">
+                            Loyalty Provider
+                        </div>
+
+                        <div class="flow-item">
+                            SendGrid
+                        </div>
+
+                        <div class="flow-item">
+                            Middleware
+                        </div>
+
+                        <div class="flow-arrow">
+                            ↓
+                        </div>
+
+                        <div class="flow-item">
+                            Different Targeting + Processes
+                        </div>
+
+                        <div class="flow-arrow">
+                            ↓
+                        </div>
+
+                        <div class="flow-item">
+                            Development Dependencies
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="system-card after">
+
+                    <div class="system-label">
+                        After
+                    </div>
+
+                    <h3>
+                        Connected engagement
+                    </h3>
+
+
+                    <div class="system-flow">
+
+                        <div class="flow-item">
+                            Customer + Loyalty Data
+                        </div>
+
+                        <div class="flow-arrow">
+                            ↓
+                        </div>
+
+                        <div class="flow-item">
+                            Shared Segmentation
+                        </div>
+
+                        <div class="flow-arrow">
+                            ↓
+                        </div>
+
+                        <div class="flow-item">
+                            Braze
+                        </div>
+
+                        <div class="flow-arrow">
+                            ↓
+                        </div>
+
+                        <div class="flow-item">
+                            Email · Push · Inbox · Content · Journeys
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- THE PROBLEM -->
+
+    <section class="case-section">
+
+        <div class="container">
+
+            <div class="case-grid">
+
+                <div class="case-heading">
+
+                    <div class="section-label">
+                        02 / The Problem
+                    </div>
+
+                    <h2>
+                        Marketing couldn't engage customers the way they wanted.
+                    </h2>
+
+                </div>
+
+
+                <div class="case-copy">
+
+                    <p>
+
+                        Our customer communications were spread across
+                        multiple platforms. Some communications came through
+                        our loyalty provider, others through SendGrid,
+                        and others through middleware.
+
+                    </p>
+
+                    <p>
+
+                        That fragmentation created operational complexity.
+                        Teams had to know which system powered each type of
+                        communication, and onboarding new team members meant
+                        teaching multiple platforms and processes.
+
+                    </p>
+
+                    <p>
+
+                        Marketing also couldn't consistently use the same
+                        customer target groups across communication channels.
+
+                    </p>
+
+                    <p>
+
+                        Certain customer-facing content created an even larger
+                        bottleneck. Updating some promotional "smart tiles"
+                        could require development work and take months to change.
+
+                    </p>
+
+
+                    <div class="callout">
+
+                        <div class="callout-label">
+                            Product Challenge
+                        </div>
+
+                        <p>
+
+                            How might we centralize customer engagement while
+                            giving Marketing better targeting, greater flexibility,
+                            and less dependency on development?
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BUSINESS REQUIREMENTS -->
+
+    <section class="case-section">
+
+        <div class="container">
+
+            <div class="case-grid">
+
+                <div class="case-heading">
+
+                    <div class="section-label">
+                        03 / Business Requirements
+                    </div>
+
+                    <h2>
+                        Build a capability the organization could grow into.
+                    </h2>
+
+                </div>
+
+
+                <div class="case-copy">
+
+                    <p>
+
+                        Braze had already been selected when I took ownership.
+                        My responsibility was determining how we would implement
+                        it across our digital ecosystem and turn the platform
+                        into a usable product capability for Marketing.
+
+                    </p>
+
+
+                    <div class="requirements-list">
+
+                        <div class="requirement-row">
+
+                            <div class="requirement-number">
+                                01
+                            </div>
+
+                            <p>
+                                Consolidate communications that previously
+                                lived across multiple systems.
+                            </p>
+
+                        </div>
+
+
+                        <div class="requirement-row">
+
+                            <div class="requirement-number">
+                                02
+                            </div>
+
+                            <p>
+                                Create reusable customer segments that could
+                                be used consistently across channels.
+                            </p>
+
+                        </div>
+
+
+                        <div class="requirement-row">
+
+                            <div class="requirement-number">
+                                03
+                            </div>
+
+                            <p>
+                                Give Marketing more control over routine
+                                communications and content changes.
+                            </p>
+
+                        </div>
+
+
+                        <div class="requirement-row">
+
+                            <div class="requirement-number">
+                                04
+                            </div>
+
+                            <p>
+                                Support connected journeys across email,
+                                push, inbox messaging, content, and other
+                                digital touchpoints.
+                            </p>
+
+                        </div>
+
+
+                        <div class="requirement-row">
+
+                            <div class="requirement-number">
+                                05
+                            </div>
+
+                            <p>
+                                Integrate customer and loyalty data into
+                                the new platform.
+                            </p>
+
+                        </div>
+
+
+                        <div class="requirement-row">
+
+                            <div class="requirement-number">
+                                06
+                            </div>
+
+                            <p>
+                                Create a scalable foundation for future
+                                personalization and engagement capabilities.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MY ROLE -->
+
+    <section class="role-section">
+
+        <div class="container">
+
+            <div class="case-grid">
+
+                <div class="case-heading">
+
+                    <div class="section-label">
+                        04 / My Role
+                    </div>
+
+                    <h2>
+                        End-to-end product ownership.
+                    </h2>
+
+                </div>
+
+
+                <div class="role-copy">
+
+                    <p>
+
+                        I was the sole Product Owner for the Braze
+                        implementation and continue to own the platform,
+                        its enhancements, SDK upgrades, and new capabilities
+                        as the Braze product SME.
+
+                    </p>
+
+                    <p>
+
+                        My role spanned business discovery, technical
+                        requirements, UX, roadmap planning, Agile delivery,
+                        cross-team dependencies, testing, Marketing enablement,
+                        and ongoing platform ownership.
+
+                    </p>
+
+
+                    <div class="role-list">
+
+                        <div class="role-item">
+
+                            <strong>
+                                Discovery
+                            </strong>
+
+                            <span>
+                                Gathered requirements from stakeholders and
+                                defined the roadmap, feature scope, and priorities.
+                            </span>
+
+                        </div>
+
+
+                        <div class="role-item">
+
+                            <strong>
+                                Requirements
+                            </strong>
+
+                            <span>
+                                Wrote the user stories and acceptance criteria
+                                for mobile and web implementation.
+                            </span>
+
+                        </div>
+
+
+                        <div class="role-item">
+
+                            <strong>
+                                Architecture
+                            </strong>
+
+                            <span>
+                                Partnered with architects and our external
+                                implementation partner to define how Braze
+                                would connect with customer and loyalty data.
+                            </span>
+
+                        </div>
+
+
+                        <div class="role-item">
+
+                            <strong>
+                                UX
+                            </strong>
+
+                            <span>
+                                Led product decisions around where Braze-powered
+                                content and features would appear across mobile
+                                and web.
+                            </span>
+
+                        </div>
+
+
+                        <div class="role-item">
+
+                            <strong>
+                                Agile Delivery
+                            </strong>
+
+                            <span>
+                                Led sprint planning, grooming, feature mapping,
+                                prioritization, dependency management, and PO acceptance.
+                            </span>
+
+                        </div>
+
+
+                        <div class="role-item">
+
+                            <strong>
+                                Testing
+                            </strong>
+
+                            <span>
+                                Built and coordinated UAT plans across Marketing,
+                                development, Product, and the implementation partner.
+                            </span>
+
+                        </div>
+
+
+                        <div class="role-item">
+
+                            <strong>
+                                Enablement
+                            </strong>
+
+                            <span>
+                                Helped establish training and operating processes
+                                so Marketing could configure communications and
+                                content correctly.
+                            </span>
+
+                        </div>
+
+
+                        <div class="role-item">
+
+                            <strong>
+                                Ownership
+                            </strong>
+
+                            <span>
+                                Continue to lead enhancements, SDK updates,
+                                troubleshooting, and product decisions for Braze.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ROADMAP -->
+
+    <section class="roadmap">
+
+        <div class="container">
+
+            <div class="section-label">
+                05 / Product Roadmap
+            </div>
+
+            <h2 class="section-title">
+                Deliver the small wins first. Build complexity from there.
+            </h2>
+
+            <p class="roadmap-intro">
+
+                Rather than waiting for every Braze capability to be
+                implemented, I phased the roadmap so Marketing could begin
+                seeing value quickly while we continued building more
+                sophisticated experiences.
+
+            </p>
+
+
+            <div class="roadmap-track">
+
+
+                <div class="roadmap-step">
+
+                    <div class="roadmap-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Email
+                    </h3>
+
+                    <p>
+                        Established the first centralized communication
+                        capability.
+                    </p>
+
+                </div>
+
+
+                <div class="roadmap-step">
+
+                    <div class="roadmap-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Push + Inbox
+                    </h3>
+
+                    <p>
+                        Expanded Marketing's ability to reach customers
+                        directly within the digital experience.
+                    </p>
+
+                </div>
+
+
+                <div class="roadmap-step">
+
+                    <div class="roadmap-number">
+                        03
+                    </div>
+
+                    <h3>
+                        For You Tiles
+                    </h3>
+
+                    <p>
+                        Gave Marketing self-service control over customer-facing
+                        content previously dependent on development.
+                    </p>
+
+                </div>
+
+
+                <div class="roadmap-step">
+
+                    <div class="roadmap-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Choice Benefits
+                    </h3>
+
+                    <p>
+                        Used Braze to power a more complex customer flow
+                        across mobile and web.
+                    </p>
+
+                </div>
+
+
+                <div class="roadmap-step">
+
+                    <div class="roadmap-number">
+                        05
+                    </div>
+
+                    <h3>
+                        Geofencing
+                    </h3>
+
+                    <p>
+                        Introduced location-based engagement while surfacing
+                        new technical and customer-permission challenges.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCT DECISIONS -->
+
+    <section class="case-section">
+
+        <div class="container">
+
+            <div class="case-grid">
+
+                <div class="case-heading">
+
+                    <div class="section-label">
+                        06 / Product Decisions
+                    </div>
+
+                    <h2>
+                        Treat the platform like a product, not a tool.
+                    </h2>
+
+                </div>
+
+
+                <div class="case-copy">
+
+                    <p>
+
+                        A large portion of the product work involved deciding
+                        how quickly to expand the platform, where self-service
+                        made sense, and when business requests needed to be
+                        adjusted because of technical constraints.
+
+                    </p>
+
+
+                    <div class="decision-grid">
+
+
+                        <div class="decision-card">
+
+                            <div class="decision-number">
+                                01
+                            </div>
+
+                            <h3>
+                                Phase around incremental value
+                            </h3>
+
+                            <p>
+
+                                I deliberately prioritized the everyday
+                                communication capabilities first so Marketing
+                                could gain value within the first few months
+                                instead of waiting for a large final launch.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="decision-card">
+
+                            <div class="decision-number">
+                                02
+                            </div>
+
+                            <h3>
+                                Remove unnecessary development work
+                            </h3>
+
+                            <p>
+
+                                Braze-powered For You tiles allowed Marketing
+                                to update content immediately rather than
+                                waiting potentially months for a development release.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="decision-card">
+
+                            <div class="decision-number">
+                                03
+                            </div>
+
+                            <h3>
+                                Balance business asks with technical reality
+                            </h3>
+
+                            <p>
+
+                                I regularly worked with developers to understand
+                                what Braze could realistically support and pushed
+                                back when stakeholder requests didn't make sense
+                                technically or introduced unnecessary complexity.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="decision-card">
+
+                            <div class="decision-number">
+                                04
+                            </div>
+
+                            <h3>
+                                Let discovery continue after launch
+                            </h3>
+
+                            <p>
+
+                                Product and Engineering were learning Braze
+                                together. Instead of assuming every capability
+                                would work as planned, we adjusted the roadmap
+                                as we discovered platform limitations.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="decision-card">
+
+                            <div class="decision-number">
+                                05
+                            </div>
+
+                            <h3>
+                                Build for reuse
+                            </h3>
+
+                            <p>
+
+                                The goal was not to solve individual campaigns.
+                                We built capabilities that Marketing could reuse
+                                across future customer journeys.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="decision-card">
+
+                            <div class="decision-number">
+                                06
+                            </div>
+
+                            <h3>
+                                Know when the platform may not be the answer
+                            </h3>
+
+                            <p>
+
+                                Geofencing has introduced persistent technical
+                                challenges. Based on what we've learned, we're
+                                continuing to evaluate whether Braze is the
+                                right long-term solution for that use case.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CUSTOMER JOURNEYS -->
+
+    <section class="journey">
+
+        <div class="container">
+
+            <div class="section-label">
+                07 / Customer Experience
+            </div>
+
+            <h2 class="section-title">
+                From sending messages to orchestrating journeys.
+            </h2>
+
+
+            <div class="journey-flow">
+
+                <div class="journey-step">
+
+                    <span>
+                        Step 01
+                    </span>
+
+                    <strong>
+                        Content
+                    </strong>
+
+                </div>
+
+
+                <div class="journey-step">
+
+                    <span>
+                        Step 02
+                    </span>
+
+                    <strong>
+                        Push
+                    </strong>
+
+                </div>
+
+
+                <div class="journey-step">
+
+                    <span>
+                        Step 03
+                    </span>
+
+                    <strong>
+                        Email
+                    </strong>
+
+                </div>
+
+
+                <div class="journey-step">
+
+                    <span>
+                        Step 04
+                    </span>
+
+                    <strong>
+                        Customer Action
+                    </strong>
+
+                </div>
+
+
+                <div class="journey-step">
+
+                    <span>
+                        Step 05
+                    </span>
+
+                    <strong>
+                        Branch / Follow-Up
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <p class="journey-note">
+
+                Marketing can now connect different communication types
+                within a single journey and change the next interaction
+                based on what the customer does or does not do.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- TECHNICAL -->
+
+    <section class="case-section">
+
+        <div class="container">
+
+            <div class="case-grid">
+
+                <div class="case-heading">
+
+                    <div class="section-label">
+                        08 / Technical Considerations
+                    </div>
+
+                    <h2>
+                        Customer engagement depended on the systems behind it.
+                    </h2>
+
+                </div>
+
+
+                <div class="case-copy">
+
+                    <p>
+
+                        Braze required more than adding a new marketing platform.
+                        The implementation touched identity, customer data,
+                        segmentation, SDKs, mobile permissions, and ongoing
+                        platform maintenance.
+
+                    </p>
+
+
+                    <div class="technical-boxes">
+
+
+                        <div class="technical-card">
+
+                            <div class="technical-label">
+                                Identity
+                            </div>
+
+                            <h3>
+                                Loyalty ID → Braze Customer ID
+                            </h3>
+
+                            <p>
+
+                                We linked loyalty program user IDs to the
+                                corresponding Braze customer identity so
+                                engagement and customer data stayed connected.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="technical-card">
+
+                            <div class="technical-label">
+                                Data
+                            </div>
+
+                            <h3>
+                                Rebuild segmentation
+                            </h3>
+
+                            <p>
+
+                                Existing segments needed to be reconsidered
+                                and recreated using customer data available
+                                through the new ecosystem.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="technical-card">
+
+                            <div class="technical-label">
+                                SDK
+                            </div>
+
+                            <h3>
+                                Ongoing platform maintenance
+                            </h3>
+
+                            <p>
+
+                                The implementation required SDK changes across
+                                digital products, and new Braze versions continue
+                                to require evaluation and upgrades.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="technical-card warning">
+
+                            <div class="technical-label">
+                                Location
+                            </div>
+
+                            <h3>
+                                New permission + adoption challenge
+                            </h3>
+
+                            <p>
+
+                                Geofencing required asking customers for location
+                                permissions for marketing purposes, something we
+                                had not historically done. Adoption and platform
+                                reliability remain areas we're actively evaluating.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DELIVERY -->
+
+    <section class="delivery">
+
+        <div class="container">
+
+            <div class="section-label">
+                09 / Delivery
+            </div>
+
+            <h2 class="section-title">
+                A quick first win followed by continuous expansion.
+            </h2>
+
+
+            <div class="delivery-timeline">
+
+
+                <div class="delivery-row">
+
+                    <div class="delivery-time">
+                        Month 1
+                    </div>
+
+                    <div class="delivery-content">
+
+                        <h3>
+                            Initial release
+                        </h3>
+
+                        <p>
+
+                            The first Braze capability launched approximately
+                            one month after I took ownership of the project.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="delivery-row">
+
+                    <div class="delivery-time">
+                        Months 1–3
+                    </div>
+
+                    <div class="delivery-content">
+
+                        <h3>
+                            Core communication capabilities
+                        </h3>
+
+                        <p>
+
+                            Email, push notifications, and inbox messaging
+                            gave Marketing new ways to reach customers
+                            within the first few months.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="delivery-row">
+
+                    <div class="delivery-time">
+                        Following Releases
+                    </div>
+
+                    <div class="delivery-content">
+
+                        <h3>
+                            Self-service content
+                        </h3>
+
+                        <p>
+
+                            Braze-powered For You tiles removed development
+                            dependencies from certain customer-facing
+                            content changes.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="delivery-row">
+
+                    <div class="delivery-time">
+                        Advanced Features
+                    </div>
+
+                    <div class="delivery-content">
+
+                        <h3>
+                            Choice Benefits + Geofencing
+                        </h3>
+
+                        <p>
+
+                            We expanded beyond communications into more
+                            complex customer flows and location-based engagement.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="delivery-row">
+
+                    <div class="delivery-time">
+                        ~10 Months
+                    </div>
+
+                    <div class="delivery-content">
+
+                        <h3>
+                            Broader platform rollout
+                        </h3>
+
+                        <p>
+
+                            Five additional feature areas were released across
+                            mobile, web, and Marketing through successive releases.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TESTING -->
+
+    <section class="testing">
+
+        <div class="container">
+
+            <div class="section-label">
+                10 / Testing + UAT
+            </div>
+
+            <h2 class="section-title">
+                Testing the product meant testing the configuration too.
+            </h2>
+
+
+            <div class="testing-grid">
+
+
+                <div class="testing-card">
+
+                    <span>
+                        Product
+                    </span>
+
+                    <h3>
+                        Requirements
+                    </h3>
+
+                    <p>
+                        Confirm the experience behaved according to the
+                        intended business and customer requirements.
+                    </p>
+
+                </div>
+
+
+                <div class="testing-card">
+
+                    <span>
+                        Engineering
+                    </span>
+
+                    <h3>
+                        Technical QA
+                    </h3>
+
+                    <p>
+                        Validate SDK behavior, integrations, placements,
+                        and development implementation.
+                    </p>
+
+                </div>
+
+
+                <div class="testing-card">
+
+                    <span>
+                        Marketing
+                    </span>
+
+                    <h3>
+                        Campaign Setup
+                    </h3>
+
+                    <p>
+                        Confirm campaigns, audience rules, content, and
+                        Braze configuration were set up correctly.
+                    </p>
+
+                </div>
+
+
+                <div class="testing-card">
+
+                    <span>
+                        Partner
+                    </span>
+
+                    <h3>
+                        Platform Validation
+                    </h3>
+
+                    <p>
+                        Work with the implementation partner to troubleshoot
+                        Braze-specific behavior and configuration.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="callout">
+
+                <div class="callout-label">
+                    What Changed
+                </div>
+
+                <p>
+
+                    Early releases exposed gaps between technical QA and
+                    Marketing configuration. I evolved the UAT process to
+                    bring Product, Marketing, Development, and our implementation
+                    partner together earlier so we could validate the entire
+                    customer experience before release.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OUTCOME -->
+
+    <section class="outcome">
+
+        <div class="container">
+
+            <div class="outcome-grid">
+
+                <div>
+
+                    <div class="section-label">
+                        11 / Outcome
+                    </div>
+
+                    <h2 class="outcome-title">
+                        More control. More connection. Less fragmentation.
+                    </h2>
+
+                </div>
+
+
+                <div>
+
+                    <div class="outcome-content">
+
+
+                        <div class="outcome-card">
+
+                            <div class="outcome-number">
+                                Months → Immediate
+                            </div>
+
+                            <h3>
+                                Content Updates
+                            </h3>
+
+                            <p>
+
+                                Marketing can update certain Braze-powered
+                                customer-facing content without waiting for
+                                a development release.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="outcome-card">
+
+                            <div class="outcome-number">
+                                1 Journey
+                            </div>
+
+                            <h3>
+                                Cross-Channel Engagement
+                            </h3>
+
+                            <p>
+
+                                Email, push, content, and follow-up actions
+                                can now work together within one customer journey.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="outcome-card">
+
+                            <div class="outcome-number">
+                                Shared
+                            </div>
+
+                            <h3>
+                                Segmentation
+                            </h3>
+
+                            <p>
+
+                                Customer audiences can be reused across
+                                multiple communication types instead of being
+                                recreated across disconnected systems.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="outcome-card">
+
+                            <div class="outcome-number">
+                                Ongoing
+                            </div>
+
+                            <h3>
+                                Platform Expansion
+                            </h3>
+
+                            <p>
+
+                                Braze continues to evolve through new SDK
+                                capabilities, product enhancements, and
+                                additional customer use cases.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="metrics-placeholder">
+
+                        ADDITIONAL PERFORMANCE METRICS TO ADD LATER:
+                        campaign deployment time, engagement, digital usage,
+                        Marketing efficiency, customer response, and business impact.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LEARNINGS -->
+
+    <section class="case-section">
+
+        <div class="container">
+
+            <div class="case-grid">
+
+                <div class="case-heading">
+
+                    <div class="section-label">
+                        12 / What I Learned
+                    </div>
+
+                    <h2>
+                        The product is bigger than the platform.
+                    </h2>
+
+                </div>
+
+
+                <div class="case-copy">
+
+                    <p>
+
+                        I'll continue refining this section as we evaluate
+                        the longer-term platform impact, but the implementation
+                        already reinforced several product principles.
+
+                    </p>
+
+
+                    <div class="learning-list">
+
+
+                        <div class="learning">
+
+                            <div class="learning-number">
+                                01
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Platform implementations are product work.
+                                </h3>
+
+                                <p>
+
+                                    Success isn't simply getting the software live.
+                                    The platform has to fit the people, processes,
+                                    customer experience, data, and systems around it.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="learning">
+
+                            <div class="learning-number">
+                                02
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Technical constraints belong in the product conversation.
+                                </h3>
+
+                                <p>
+
+                                    Working closely with Engineering helped me
+                                    challenge requests that didn't make technical
+                                    sense and find better tradeoffs with stakeholders.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="learning">
+
+                            <div class="learning-number">
+                                03
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Launching a capability changes operating processes too.
+                                </h3>
+
+                                <p>
+
+                                    Marketing configuration became part of the
+                                    customer experience, which meant training,
+                                    governance, and UAT were just as important
+                                    as development.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="learning">
+
+                            <div class="learning-number">
+                                04
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    A vendor solution isn't automatically the right solution forever.
+                                </h3>
+
+                                <p>
+
+                                    Geofencing reinforced the importance of
+                                    evaluating whether a platform continues to
+                                    solve the underlying problem rather than
+                                    forcing every use case into the same technology.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEXT -->
+
+    <section class="next-project">
+
+        <div class="container">
+
+            <div class="eyebrow">
+                More Product Work
+            </div>
+
+            <h2>
+                See how I approach other product problems.
+            </h2>
+
+            <a href="index.html#work" class="button primary">
+                View All Projects →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <span>
+                © 2026 Julia Campisano
+            </span>
+
+            <span>
+                Product / Digital / MarTech
+            </span>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
