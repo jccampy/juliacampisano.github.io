@@ -33,9 +33,11 @@
             --ink: #171717;
             --muted: #696969;
             --line: #dedbd4;
+
             --lavender: #c9b9ff;
             --lavender-dark: #7257c7;
             --soft-lavender: #eee9ff;
+
             --blue: #d9e9ff;
             --green: #dcebdc;
             --soft-yellow: #f5edc9;
@@ -60,6 +62,7 @@
             text-decoration: none;
         }
 
+
         /* =========================================
            GRID BACKGROUND
         ========================================= */
@@ -68,7 +71,9 @@
             content: "";
             position: fixed;
             inset: 0;
+
             pointer-events: none;
+
             opacity: 0.35;
             z-index: -1;
 
@@ -87,8 +92,9 @@
             background-size: 80px 80px;
         }
 
+
         /* =========================================
-           NAV
+           NAVIGATION
         ========================================= */
 
         nav {
@@ -97,6 +103,7 @@
             z-index: 100;
 
             background: rgba(247,245,240,0.92);
+
             backdrop-filter: blur(14px);
 
             border-bottom: 1px solid var(--line);
@@ -104,7 +111,9 @@
 
         .nav-container {
             max-width: 1200px;
+
             margin: auto;
+
             padding: 18px 30px;
 
             display: flex;
@@ -124,6 +133,7 @@
         .back-link {
             font-size: 12px;
             font-weight: 700;
+
             color: var(--muted);
         }
 
@@ -131,13 +141,16 @@
             color: var(--ink);
         }
 
+
         /* =========================================
            GENERAL
         ========================================= */
 
         .container {
             max-width: 1200px;
+
             margin: auto;
+
             padding: 0 30px;
         }
 
@@ -148,11 +161,14 @@
         .eyebrow {
             display: inline-flex;
             align-items: center;
+
             gap: 8px;
 
             font-size: 11px;
             font-weight: 800;
+
             letter-spacing: 1.8px;
+
             text-transform: uppercase;
 
             color: var(--lavender-dark);
@@ -160,9 +176,12 @@
 
         .eyebrow::before {
             content: "";
+
             width: 7px;
             height: 7px;
+
             border-radius: 50%;
+
             background: var(--lavender-dark);
         }
 
@@ -171,7 +190,9 @@
 
             font-size: 11px;
             font-weight: 800;
+
             letter-spacing: 2px;
+
             text-transform: uppercase;
 
             color: var(--muted);
@@ -181,9 +202,12 @@
             max-width: 850px;
 
             font-size: clamp(42px, 6vw, 72px);
+
             line-height: 0.98;
+
             letter-spacing: -4px;
         }
+
 
         /* =========================================
            HERO
@@ -195,8 +219,11 @@
 
         .hero-grid {
             display: grid;
+
             grid-template-columns: 1.4fr 0.6fr;
+
             gap: 80px;
+
             align-items: end;
         }
 
@@ -206,12 +233,15 @@
             margin: 25px 0 30px;
 
             font-size: clamp(58px, 9vw, 115px);
+
             line-height: 0.87;
+
             letter-spacing: -7px;
         }
 
         .case-hero h1 em {
             font-style: normal;
+
             color: var(--lavender-dark);
         }
 
@@ -219,11 +249,13 @@
             max-width: 720px;
 
             font-size: 20px;
+
             color: var(--muted);
         }
 
         .hero-meta {
             border-left: 2px solid var(--ink);
+
             padding-left: 25px;
         }
 
@@ -232,7 +264,9 @@
 
             font-size: 10px;
             font-weight: 800;
+
             letter-spacing: 1.5px;
+
             text-transform: uppercase;
 
             color: var(--muted);
@@ -245,11 +279,14 @@
             font-weight: 700;
         }
 
+
         /* =========================================
            SNAPSHOT
         ========================================= */
 
         .snapshot {
+            padding: 0;
+
             border-top: 1px solid var(--ink);
             border-bottom: 1px solid var(--ink);
 
@@ -258,6 +295,7 @@
 
         .snapshot-grid {
             display: grid;
+
             grid-template-columns: repeat(4, 1fr);
         }
 
@@ -276,7 +314,9 @@
 
             font-size: 9px;
             font-weight: 800;
+
             letter-spacing: 1.2px;
+
             text-transform: uppercase;
 
             color: var(--muted);
@@ -286,6 +326,7 @@
             font-size: 17px;
             font-weight: 800;
         }
+
 
         /* =========================================
            BEFORE / AFTER
@@ -297,15 +338,19 @@
 
         .before-after-intro {
             max-width: 760px;
+
             margin: 25px 0 55px;
 
             font-size: 18px;
+
             color: #555;
         }
 
         .system-grid {
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 20px;
         }
 
@@ -313,11 +358,13 @@
             padding: 35px;
 
             background: white;
+
             border: 1px solid var(--line);
         }
 
         .system-card.after {
             background: var(--ink);
+
             color: white;
         }
 
@@ -326,7 +373,9 @@
 
             font-size: 10px;
             font-weight: 800;
+
             letter-spacing: 1.5px;
+
             text-transform: uppercase;
 
             color: var(--lavender-dark);
@@ -340,11 +389,13 @@
             margin-bottom: 25px;
 
             font-size: 28px;
+
             letter-spacing: -1px;
         }
 
         .system-flow {
             display: grid;
+
             gap: 10px;
         }
 
@@ -352,6 +403,7 @@
             padding: 14px 16px;
 
             border: 1px solid var(--line);
+
             background: var(--cream);
 
             font-size: 13px;
@@ -360,13 +412,17 @@
 
         .system-card.after .flow-item {
             border-color: #444;
+
             background: #242424;
+
             color: #ddd;
         }
 
         .flow-arrow {
             text-align: center;
+
             font-size: 18px;
+
             color: var(--lavender-dark);
         }
 
@@ -374,8 +430,9 @@
             color: var(--lavender);
         }
 
+
         /* =========================================
-           CASE SECTION
+           STANDARD CASE SECTIONS
         ========================================= */
 
         .case-section {
@@ -384,13 +441,17 @@
 
         .case-grid {
             display: grid;
+
             grid-template-columns: 0.7fr 1.3fr;
+
             gap: 90px;
+
             align-items: start;
         }
 
         .case-heading {
             position: sticky;
+
             top: 100px;
         }
 
@@ -398,7 +459,9 @@
             max-width: 420px;
 
             font-size: clamp(38px, 5vw, 60px);
+
             line-height: 0.97;
+
             letter-spacing: -3px;
         }
 
@@ -406,6 +469,7 @@
             max-width: 780px;
 
             font-size: 17px;
+
             color: #555;
         }
 
@@ -415,9 +479,11 @@
 
         .callout {
             margin-top: 35px;
+
             padding: 30px;
 
             background: var(--soft-lavender);
+
             border-left: 4px solid var(--lavender-dark);
         }
 
@@ -426,7 +492,9 @@
 
             font-size: 9px;
             font-weight: 800;
+
             letter-spacing: 1.4px;
+
             text-transform: uppercase;
 
             color: var(--lavender-dark);
@@ -436,9 +504,12 @@
             margin: 0;
 
             font-size: 20px;
+
             line-height: 1.4;
+
             color: var(--ink);
         }
+
 
         /* =========================================
            REQUIREMENTS
@@ -446,12 +517,15 @@
 
         .requirements-list {
             margin-top: 35px;
+
             border-top: 1px solid var(--ink);
         }
 
         .requirement-row {
             display: grid;
+
             grid-template-columns: 90px 1fr;
+
             gap: 30px;
 
             padding: 22px 0;
@@ -462,6 +536,7 @@
         .requirement-number {
             font-size: 10px;
             font-weight: 800;
+
             color: var(--lavender-dark);
         }
 
@@ -469,8 +544,10 @@
             margin: 0;
 
             font-size: 15px;
+
             color: var(--ink);
         }
+
 
         /* =========================================
            ROLE
@@ -478,6 +555,7 @@
 
         .role-section {
             background: var(--ink);
+
             color: white;
         }
 
@@ -499,12 +577,15 @@
 
         .role-list {
             margin-top: 35px;
+
             border-top: 1px solid #444;
         }
 
         .role-item {
             display: grid;
+
             grid-template-columns: 150px 1fr;
+
             gap: 30px;
 
             padding: 20px 0;
@@ -514,7 +595,9 @@
 
         .role-item strong {
             font-size: 10px;
+
             letter-spacing: 1px;
+
             text-transform: uppercase;
 
             color: var(--lavender);
@@ -522,8 +605,10 @@
 
         .role-item span {
             font-size: 14px;
+
             color: #ccc;
         }
+
 
         /* =========================================
            ROADMAP
@@ -539,11 +624,13 @@
             margin: 25px 0 55px;
 
             font-size: 18px;
+
             color: #555;
         }
 
         .roadmap-track {
             display: grid;
+
             grid-template-columns: repeat(5, 1fr);
 
             border-top: 1px solid var(--ink);
@@ -568,6 +655,7 @@
 
             font-size: 10px;
             font-weight: 800;
+
             color: var(--lavender-dark);
         }
 
@@ -579,8 +667,10 @@
 
         .roadmap-step p {
             font-size: 13px;
+
             color: #555;
         }
+
 
         /* =========================================
            PRODUCT DECISIONS
@@ -588,7 +678,9 @@
 
         .decision-grid {
             display: grid;
+
             grid-template-columns: repeat(2, 1fr);
+
             gap: 15px;
 
             margin-top: 40px;
@@ -600,6 +692,7 @@
             min-height: 240px;
 
             background: white;
+
             border: 1px solid var(--line);
         }
 
@@ -616,6 +709,7 @@
             margin-bottom: 12px;
 
             font-size: 23px;
+
             letter-spacing: -0.8px;
         }
 
@@ -623,8 +717,10 @@
             margin: 0;
 
             font-size: 14px;
+
             color: var(--muted);
         }
+
 
         /* =========================================
            CUSTOMER JOURNEY
@@ -634,12 +730,25 @@
             background: var(--soft-yellow);
         }
 
+        .journey-intro {
+            max-width: 760px;
+
+            margin-top: 25px;
+
+            font-size: 18px;
+
+            color: #555;
+        }
+
         .journey-flow {
             margin-top: 50px;
 
             display: grid;
+
             grid-template-columns: repeat(5, 1fr);
+
             gap: 10px;
+
             align-items: center;
         }
 
@@ -649,17 +758,22 @@
             padding: 22px;
 
             background: white;
+
             border: 1px solid rgba(0,0,0,0.12);
 
             display: flex;
+
             flex-direction: column;
+
             justify-content: space-between;
         }
 
         .journey-step span {
             font-size: 9px;
             font-weight: 800;
+
             letter-spacing: 1px;
+
             text-transform: uppercase;
 
             color: var(--lavender-dark);
@@ -669,16 +783,14 @@
             font-size: 18px;
         }
 
-        .journey-arrow {
-            display: none;
-        }
-
         .journey-note {
             margin-top: 25px;
 
             font-size: 14px;
+
             color: #555;
         }
+
 
         /* =========================================
            TECHNICAL
@@ -686,7 +798,9 @@
 
         .technical-boxes {
             display: grid;
+
             grid-template-columns: repeat(2, 1fr);
+
             gap: 15px;
 
             margin-top: 40px;
@@ -696,6 +810,7 @@
             padding: 30px;
 
             background: white;
+
             border: 1px solid var(--line);
         }
 
@@ -704,7 +819,9 @@
 
             font-size: 9px;
             font-weight: 800;
+
             letter-spacing: 1.3px;
+
             text-transform: uppercase;
 
             color: var(--lavender-dark);
@@ -720,12 +837,14 @@
             margin: 0;
 
             font-size: 14px;
+
             color: var(--muted);
         }
 
         .technical-card.warning {
             background: var(--soft-lavender);
         }
+
 
         /* =========================================
            DELIVERY
@@ -737,12 +856,15 @@
 
         .delivery-timeline {
             margin-top: 45px;
+
             border-top: 1px solid var(--ink);
         }
 
         .delivery-row {
             display: grid;
+
             grid-template-columns: 160px 1fr;
+
             gap: 40px;
 
             padding: 28px 0;
@@ -753,7 +875,9 @@
         .delivery-time {
             font-size: 10px;
             font-weight: 800;
+
             letter-spacing: 1px;
+
             text-transform: uppercase;
 
             color: var(--lavender-dark);
@@ -769,8 +893,10 @@
             margin: 0;
 
             font-size: 14px;
+
             color: var(--muted);
         }
+
 
         /* =========================================
            TESTING
@@ -780,9 +906,21 @@
             background: var(--soft-lavender);
         }
 
+        .testing-intro {
+            max-width: 760px;
+
+            margin-top: 25px;
+
+            font-size: 18px;
+
+            color: #555;
+        }
+
         .testing-grid {
             display: grid;
+
             grid-template-columns: repeat(4, 1fr);
+
             gap: 1px;
 
             margin-top: 45px;
@@ -792,6 +930,7 @@
 
         .testing-card {
             padding: 28px;
+
             background: rgba(255,255,255,0.65);
         }
 
@@ -802,7 +941,9 @@
 
             font-size: 9px;
             font-weight: 800;
+
             letter-spacing: 1px;
+
             text-transform: uppercase;
 
             color: var(--lavender-dark);
@@ -810,13 +951,16 @@
 
         .testing-card h3 {
             margin-bottom: 8px;
+
             font-size: 18px;
         }
 
         .testing-card p {
             font-size: 13px;
+
             color: #555;
         }
+
 
         /* =========================================
            OUTCOME
@@ -824,6 +968,7 @@
 
         .outcome {
             background: var(--ink);
+
             color: white;
         }
 
@@ -833,20 +978,27 @@
 
         .outcome-grid {
             display: grid;
+
             grid-template-columns: 0.7fr 1.3fr;
+
             gap: 90px;
+
             align-items: start;
         }
 
         .outcome-title {
             font-size: clamp(45px, 6vw, 75px);
+
             line-height: 0.93;
+
             letter-spacing: -4px;
         }
 
         .outcome-content {
             display: grid;
+
             grid-template-columns: repeat(2, 1fr);
+
             gap: 1px;
 
             background: #444;
@@ -861,8 +1013,11 @@
         .outcome-number {
             margin-bottom: 18px;
 
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 800;
+
+            line-height: 1;
+
             letter-spacing: -2px;
 
             color: var(--lavender);
@@ -876,18 +1031,22 @@
 
         .outcome-card p {
             font-size: 13px;
+
             color: #aaa;
         }
 
         .metrics-placeholder {
             margin-top: 20px;
+
             padding: 18px;
 
             border: 1px dashed #555;
 
             font-size: 12px;
+
             color: #888;
         }
+
 
         /* =========================================
            LEARNINGS
@@ -895,12 +1054,15 @@
 
         .learning-list {
             margin-top: 40px;
+
             border-top: 1px solid var(--ink);
         }
 
         .learning {
             display: grid;
+
             grid-template-columns: 80px 1fr;
+
             gap: 30px;
 
             padding: 28px 0;
@@ -911,6 +1073,7 @@
         .learning-number {
             font-size: 10px;
             font-weight: 800;
+
             color: var(--lavender-dark);
         }
 
@@ -924,11 +1087,13 @@
             margin: 0;
 
             color: var(--muted);
+
             font-size: 14px;
         }
 
+
         /* =========================================
-           NEXT
+           NEXT PROJECT
         ========================================= */
 
         .next-project {
@@ -941,7 +1106,9 @@
             margin: 22px auto 30px;
 
             font-size: clamp(45px, 6vw, 75px);
+
             line-height: 0.95;
+
             letter-spacing: -4px;
         }
 
@@ -951,16 +1118,25 @@
             padding: 13px 21px;
 
             border: 1px solid var(--ink);
+
             border-radius: 3px;
 
             font-size: 13px;
             font-weight: 700;
+
+            transition: transform 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
         }
 
         .button.primary {
             background: var(--ink);
+
             color: white;
         }
+
 
         /* =========================================
            FOOTER
@@ -972,17 +1148,22 @@
             padding: 25px 0;
 
             font-size: 11px;
+
             color: var(--muted);
         }
 
         .footer-container {
             max-width: 1200px;
+
             margin: auto;
+
             padding: 0 30px;
 
             display: flex;
+
             justify-content: space-between;
         }
+
 
         /* =========================================
            MOBILE
@@ -998,6 +1179,7 @@
             .case-grid,
             .outcome-grid {
                 grid-template-columns: 1fr;
+
                 gap: 50px;
             }
 
@@ -1007,7 +1189,9 @@
 
             .hero-meta {
                 border-left: none;
+
                 border-top: 1px solid var(--ink);
+
                 padding: 25px 0 0;
             }
 
@@ -1028,7 +1212,9 @@
             .roadmap-step,
             .roadmap-step:not(:first-child) {
                 padding: 25px 0;
+
                 border-right: none;
+
                 border-bottom: 1px solid rgba(0,0,0,0.15);
             }
 
@@ -1042,6 +1228,7 @@
 
         }
 
+
         @media (max-width: 550px) {
 
             .container {
@@ -1054,6 +1241,7 @@
 
             .case-hero h1 {
                 font-size: 58px;
+
                 letter-spacing: -4px;
             }
 
@@ -1063,6 +1251,7 @@
 
             .snapshot-card {
                 border-right: none;
+
                 border-bottom: 1px solid var(--line);
             }
 
@@ -1070,6 +1259,7 @@
             .requirement-row,
             .delivery-row {
                 grid-template-columns: 1fr;
+
                 gap: 8px;
             }
 
@@ -1080,6 +1270,7 @@
 
             .learning {
                 grid-template-columns: 1fr;
+
                 gap: 8px;
             }
 
@@ -1089,6 +1280,7 @@
 
             .footer-container span {
                 display: block;
+
                 margin-bottom: 8px;
             }
 
@@ -1097,9 +1289,13 @@
     </style>
 </head>
 
+
 <body>
 
-    <!-- NAVIGATION -->
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
 
     <nav>
 
@@ -1118,7 +1314,10 @@
     </nav>
 
 
-    <!-- HERO -->
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
 
     <section class="case-hero">
 
@@ -1194,13 +1393,17 @@
     </section>
 
 
-    <!-- SNAPSHOT -->
+
+    <!-- =========================================
+         PROJECT SNAPSHOT
+    ========================================== -->
 
     <section class="snapshot">
 
         <div class="container">
 
             <div class="snapshot-grid">
+
 
                 <div class="snapshot-card">
 
@@ -1253,6 +1456,7 @@
 
                 </div>
 
+
             </div>
 
         </div>
@@ -1260,7 +1464,10 @@
     </section>
 
 
-    <!-- BEFORE / AFTER -->
+
+    <!-- =========================================
+         BEFORE / AFTER
+    ========================================== -->
 
     <section class="before-after">
 
@@ -1378,6 +1585,7 @@
 
                 </div>
 
+
             </div>
 
         </div>
@@ -1385,13 +1593,17 @@
     </section>
 
 
-    <!-- THE PROBLEM -->
+
+    <!-- =========================================
+         THE PROBLEM
+    ========================================== -->
 
     <section class="case-section">
 
         <div class="container">
 
             <div class="case-grid">
+
 
                 <div class="case-heading">
 
@@ -1429,14 +1641,16 @@
                     <p>
 
                         Marketing also couldn't consistently use the same
-                        customer target groups across communication channels.
+                        customer target groups across communication channels,
+                        limiting their ability to create connected customer
+                        journeys.
 
                     </p>
 
                     <p>
 
                         Certain customer-facing content created an even larger
-                        bottleneck. Updating some promotional "smart tiles"
+                        bottleneck. Updating some promotional smart tiles
                         could require development work and take months to change.
 
                     </p>
@@ -1460,6 +1674,7 @@
 
                 </div>
 
+
             </div>
 
         </div>
@@ -1467,13 +1682,17 @@
     </section>
 
 
-    <!-- BUSINESS REQUIREMENTS -->
+
+    <!-- =========================================
+         BUSINESS REQUIREMENTS
+    ========================================== -->
 
     <section class="case-section">
 
         <div class="container">
 
             <div class="case-grid">
+
 
                 <div class="case-heading">
 
@@ -1501,6 +1720,7 @@
 
 
                     <div class="requirements-list">
+
 
                         <div class="requirement-row">
 
@@ -1538,7 +1758,7 @@
 
                             <p>
                                 Give Marketing more control over routine
-                                communications and content changes.
+                                communications and customer-facing content.
                             </p>
 
                         </div>
@@ -1586,9 +1806,11 @@
 
                         </div>
 
+
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -1597,13 +1819,17 @@
     </section>
 
 
-    <!-- MY ROLE -->
+
+    <!-- =========================================
+         MY ROLE
+    ========================================== -->
 
     <section class="role-section">
 
         <div class="container">
 
             <div class="case-grid">
+
 
                 <div class="case-heading">
 
@@ -1641,6 +1867,7 @@
 
                     <div class="role-list">
 
+
                         <div class="role-item">
 
                             <strong>
@@ -1662,7 +1889,7 @@
                             </strong>
 
                             <span>
-                                Wrote the user stories and acceptance criteria
+                                Wrote user stories and acceptance criteria
                                 for mobile and web implementation.
                             </span>
 
@@ -1707,7 +1934,8 @@
 
                             <span>
                                 Led sprint planning, grooming, feature mapping,
-                                prioritization, dependency management, and PO acceptance.
+                                prioritization, dependency management, and
+                                Product Owner acceptance.
                             </span>
 
                         </div>
@@ -1721,7 +1949,7 @@
 
                             <span>
                                 Built and coordinated UAT plans across Marketing,
-                                development, Product, and the implementation partner.
+                                Development, Product, and the implementation partner.
                             </span>
 
                         </div>
@@ -1735,8 +1963,8 @@
 
                             <span>
                                 Helped establish training and operating processes
-                                so Marketing could configure communications and
-                                content correctly.
+                                so Marketing could correctly configure communications
+                                and customer-facing content.
                             </span>
 
                         </div>
@@ -1755,9 +1983,11 @@
 
                         </div>
 
+
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -1766,7 +1996,10 @@
     </section>
 
 
-    <!-- ROADMAP -->
+
+    <!-- =========================================
+         PRODUCT ROADMAP
+    ========================================== -->
 
     <section class="roadmap">
 
@@ -1840,8 +2073,9 @@
                     </h3>
 
                     <p>
-                        Gave Marketing self-service control over customer-facing
-                        content previously dependent on development.
+                        Gave Marketing self-service control over
+                        customer-facing content previously dependent
+                        on development.
                     </p>
 
                 </div>
@@ -1858,8 +2092,8 @@
                     </h3>
 
                     <p>
-                        Used Braze to power a more complex customer flow
-                        across mobile and web.
+                        Used Braze to power a more complex customer
+                        flow across mobile and web.
                     </p>
 
                 </div>
@@ -1876,11 +2110,13 @@
                     </h3>
 
                     <p>
-                        Introduced location-based engagement while surfacing
-                        new technical and customer-permission challenges.
+                        Introduced location-based engagement while
+                        surfacing new technical and customer-permission
+                        challenges.
                     </p>
 
                 </div>
+
 
             </div>
 
@@ -1889,13 +2125,17 @@
     </section>
 
 
-    <!-- PRODUCT DECISIONS -->
+
+    <!-- =========================================
+         PRODUCT DECISIONS
+    ========================================== -->
 
     <section class="case-section">
 
         <div class="container">
 
             <div class="case-grid">
+
 
                 <div class="case-heading">
 
@@ -1937,10 +2177,10 @@
 
                             <p>
 
-                                I deliberately prioritized the everyday
-                                communication capabilities first so Marketing
-                                could gain value within the first few months
-                                instead of waiting for a large final launch.
+                                I prioritized everyday communication
+                                capabilities first so Marketing could gain
+                                value within the first few months rather than
+                                waiting for one large final launch.
 
                             </p>
 
@@ -1961,7 +2201,8 @@
 
                                 Braze-powered For You tiles allowed Marketing
                                 to update content immediately rather than
-                                waiting potentially months for a development release.
+                                waiting potentially months for a development
+                                release.
 
                             </p>
 
@@ -1980,10 +2221,11 @@
 
                             <p>
 
-                                I regularly worked with developers to understand
-                                what Braze could realistically support and pushed
-                                back when stakeholder requests didn't make sense
-                                technically or introduced unnecessary complexity.
+                                I worked closely with developers to understand
+                                what Braze could realistically support and
+                                pushed back when stakeholder requests did not
+                                make technical sense or introduced unnecessary
+                                complexity.
 
                             </p>
 
@@ -1997,15 +2239,15 @@
                             </div>
 
                             <h3>
-                                Let discovery continue after launch
+                                Learn while building
                             </h3>
 
                             <p>
 
                                 Product and Engineering were learning Braze
-                                together. Instead of assuming every capability
-                                would work as planned, we adjusted the roadmap
-                                as we discovered platform limitations.
+                                together. We used ongoing technical discovery
+                                to adjust requirements and the roadmap as we
+                                uncovered new platform capabilities and limitations.
 
                             </p>
 
@@ -2019,14 +2261,14 @@
                             </div>
 
                             <h3>
-                                Build for reuse
+                                Build reusable capabilities
                             </h3>
 
                             <p>
 
                                 The goal was not to solve individual campaigns.
-                                We built capabilities that Marketing could reuse
-                                across future customer journeys.
+                                We built capabilities and placements Marketing
+                                could reuse across future customer journeys.
 
                             </p>
 
@@ -2045,18 +2287,20 @@
 
                             <p>
 
-                                Geofencing has introduced persistent technical
-                                challenges. Based on what we've learned, we're
-                                continuing to evaluate whether Braze is the
-                                right long-term solution for that use case.
+                                Geofencing introduced persistent technical
+                                challenges. Based on what we've learned, we
+                                continue to evaluate whether Braze is the
+                                right long-term solution for that specific use case.
 
                             </p>
 
                         </div>
 
+
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -2065,7 +2309,10 @@
     </section>
 
 
-    <!-- CUSTOMER JOURNEYS -->
+
+    <!-- =========================================
+         CUSTOMER EXPERIENCE
+    ========================================== -->
 
     <section class="journey">
 
@@ -2079,8 +2326,17 @@
                 From sending messages to orchestrating journeys.
             </h2>
 
+            <p class="journey-intro">
+
+                The biggest change wasn't simply adding more communication
+                channels. Marketing could now connect those channels and
+                change what happened next based on customer behavior.
+
+            </p>
+
 
             <div class="journey-flow">
+
 
                 <div class="journey-step">
 
@@ -2146,14 +2402,15 @@
 
                 </div>
 
+
             </div>
 
 
             <p class="journey-note">
 
-                Marketing can now connect different communication types
-                within a single journey and change the next interaction
-                based on what the customer does or does not do.
+                For example, one campaign can trigger customer-facing content,
+                a push notification, and an email, then branch into a different
+                follow-up if the customer does not complete the intended action.
 
             </p>
 
@@ -2162,13 +2419,17 @@
     </section>
 
 
-    <!-- TECHNICAL -->
+
+    <!-- =========================================
+         TECHNICAL CONSIDERATIONS
+    ========================================== -->
 
     <section class="case-section">
 
         <div class="container">
 
             <div class="case-grid">
+
 
                 <div class="case-heading">
 
@@ -2212,7 +2473,8 @@
 
                                 We linked loyalty program user IDs to the
                                 corresponding Braze customer identity so
-                                engagement and customer data stayed connected.
+                                engagement and customer data stayed connected
+                                to the correct user.
 
                             </p>
 
@@ -2231,9 +2493,9 @@
 
                             <p>
 
-                                Existing segments needed to be reconsidered
-                                and recreated using customer data available
-                                through the new ecosystem.
+                                Existing customer segments needed to be
+                                reconsidered and recreated using the user
+                                data available within the new ecosystem.
 
                             </p>
 
@@ -2252,9 +2514,10 @@
 
                             <p>
 
-                                The implementation required SDK changes across
-                                digital products, and new Braze versions continue
-                                to require evaluation and upgrades.
+                                The implementation required SDK changes
+                                across our digital products. New Braze
+                                versions and capabilities continue to require
+                                evaluation, development, and upgrades.
 
                             </p>
 
@@ -2268,23 +2531,26 @@
                             </div>
 
                             <h3>
-                                New permission + adoption challenge
+                                A new permission + adoption challenge
                             </h3>
 
                             <p>
 
-                                Geofencing required asking customers for location
-                                permissions for marketing purposes, something we
-                                had not historically done. Adoption and platform
-                                reliability remain areas we're actively evaluating.
+                                Geofencing required asking customers for
+                                location permissions for marketing purposes,
+                                something we had not historically done.
+                                Adoption and platform reliability remain
+                                areas we continue to evaluate.
 
                             </p>
 
                         </div>
 
+
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -2293,7 +2559,10 @@
     </section>
 
 
-    <!-- DELIVERY -->
+
+    <!-- =========================================
+         DELIVERY
+    ========================================== -->
 
     <section class="delivery">
 
@@ -2399,8 +2668,9 @@
 
                         <p>
 
-                            We expanded beyond communications into more
-                            complex customer flows and location-based engagement.
+                            We expanded beyond core communications into
+                            more complex customer flows and location-based
+                            engagement.
 
                         </p>
 
@@ -2423,14 +2693,16 @@
 
                         <p>
 
-                            Five additional feature areas were released across
-                            mobile, web, and Marketing through successive releases.
+                            Five additional feature areas were released
+                            across mobile, web, and Marketing through
+                            successive releases.
 
                         </p>
 
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -2439,7 +2711,10 @@
     </section>
 
 
-    <!-- TESTING -->
+
+    <!-- =========================================
+         TESTING + UAT
+    ========================================== -->
 
     <section class="testing">
 
@@ -2452,6 +2727,15 @@
             <h2 class="section-title">
                 Testing the product meant testing the configuration too.
             </h2>
+
+            <p class="testing-intro">
+
+                A technically correct implementation could still result
+                in the wrong customer experience if a campaign was configured
+                incorrectly. That meant our testing process had to extend
+                beyond traditional development QA.
+
+            </p>
 
 
             <div class="testing-grid">
@@ -2468,8 +2752,8 @@
                     </h3>
 
                     <p>
-                        Confirm the experience behaved according to the
-                        intended business and customer requirements.
+                        Confirm the experience behaved according to
+                        the intended business and customer requirements.
                     </p>
 
                 </div>
@@ -2486,8 +2770,8 @@
                     </h3>
 
                     <p>
-                        Validate SDK behavior, integrations, placements,
-                        and development implementation.
+                        Validate SDK behavior, integrations,
+                        placements, and development implementation.
                     </p>
 
                 </div>
@@ -2504,8 +2788,9 @@
                     </h3>
 
                     <p>
-                        Confirm campaigns, audience rules, content, and
-                        Braze configuration were set up correctly.
+                        Confirm campaigns, audience rules,
+                        content, and Braze configuration were
+                        set up correctly.
                     </p>
 
                 </div>
@@ -2514,7 +2799,7 @@
                 <div class="testing-card">
 
                     <span>
-                        Partner
+                        Implementation Partner
                     </span>
 
                     <h3>
@@ -2522,11 +2807,12 @@
                     </h3>
 
                     <p>
-                        Work with the implementation partner to troubleshoot
-                        Braze-specific behavior and configuration.
+                        Troubleshoot Braze-specific behavior,
+                        platform configuration, and implementation issues.
                     </p>
 
                 </div>
+
 
             </div>
 
@@ -2554,13 +2840,17 @@
     </section>
 
 
-    <!-- OUTCOME -->
+
+    <!-- =========================================
+         OUTCOME
+    ========================================== -->
 
     <section class="outcome">
 
         <div class="container">
 
             <div class="outcome-grid">
+
 
                 <div>
 
@@ -2576,6 +2866,7 @@
 
 
                 <div>
+
 
                     <div class="outcome-content">
 
@@ -2593,8 +2884,8 @@
                             <p>
 
                                 Marketing can update certain Braze-powered
-                                customer-facing content without waiting for
-                                a development release.
+                                customer-facing content without waiting
+                                for a development release.
 
                             </p>
 
@@ -2634,8 +2925,8 @@
                             <p>
 
                                 Customer audiences can be reused across
-                                multiple communication types instead of being
-                                recreated across disconnected systems.
+                                multiple communication types rather than
+                                being recreated across disconnected systems.
 
                             </p>
 
@@ -2654,26 +2945,30 @@
 
                             <p>
 
-                                Braze continues to evolve through new SDK
-                                capabilities, product enhancements, and
-                                additional customer use cases.
+                                Braze continues to evolve through SDK
+                                upgrades, new capabilities, product
+                                enhancements, and additional customer use cases.
 
                             </p>
 
                         </div>
+
 
                     </div>
 
 
                     <div class="metrics-placeholder">
 
-                        ADDITIONAL PERFORMANCE METRICS TO ADD LATER:
+                        ADDITIONAL PERFORMANCE METRICS TO ADD:
                         campaign deployment time, engagement, digital usage,
-                        Marketing efficiency, customer response, and business impact.
+                        Marketing efficiency, customer response, and
+                        measurable business impact.
 
                     </div>
 
+
                 </div>
+
 
             </div>
 
@@ -2682,13 +2977,17 @@
     </section>
 
 
-    <!-- LEARNINGS -->
+
+    <!-- =========================================
+         WHAT I LEARNED
+    ========================================== -->
 
     <section class="case-section">
 
         <div class="container">
 
             <div class="case-grid">
+
 
                 <div class="case-heading">
 
@@ -2707,9 +3006,11 @@
 
                     <p>
 
-                        I'll continue refining this section as we evaluate
-                        the longer-term platform impact, but the implementation
-                        already reinforced several product principles.
+                        This implementation reinforced that launching
+                        technology is only one part of building a successful
+                        platform. The processes, users, integrations,
+                        operating model, and customer experience around it
+                        matter just as much.
 
                     </p>
 
@@ -2731,7 +3032,7 @@
 
                                 <p>
 
-                                    Success isn't simply getting the software live.
+                                    Success isn't simply getting software live.
                                     The platform has to fit the people, processes,
                                     customer experience, data, and systems around it.
 
@@ -2776,7 +3077,7 @@
                             <div>
 
                                 <h3>
-                                    Launching a capability changes operating processes too.
+                                    New capabilities change operating processes too.
                                 </h3>
 
                                 <p>
@@ -2818,9 +3119,11 @@
 
                         </div>
 
+
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -2829,7 +3132,10 @@
     </section>
 
 
-    <!-- NEXT -->
+
+    <!-- =========================================
+         NEXT PROJECT
+    ========================================== -->
 
     <section class="next-project">
 
@@ -2843,7 +3149,10 @@
                 See how I approach other product problems.
             </h2>
 
-            <a href="index.html#work" class="button primary">
+            <a
+                href="index.html#work"
+                class="button primary"
+            >
                 View All Projects →
             </a>
 
@@ -2852,7 +3161,10 @@
     </section>
 
 
-    <!-- FOOTER -->
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
 
     <footer>
 
