@@ -1,0 +1,2356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loyalty Tier Experience | Julia Campisano</title>
+
+    <meta
+        name="description"
+        content="Product case study: Loyalty Tier Experience by Julia Campisano."
+    >
+
+    <style>
+
+        /* =========================================
+           VARIABLES
+        ========================================= */
+
+        :root {
+            --cream: #f7f5f0;
+            --white: #ffffff;
+            --ink: #171717;
+            --muted: #686868;
+            --line: #dedbd4;
+
+            --lavender: #c9b9ff;
+            --lavender-dark: #7257c7;
+            --soft-lavender: #eee9ff;
+
+            --blue: #d9e9ff;
+            --green: #dcebdc;
+        }
+
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           BACKGROUND GRID
+        ========================================= */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: 0.35;
+
+            z-index: -1;
+
+            background-image:
+                linear-gradient(
+                    to right,
+                    rgba(0,0,0,0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 80px 80px;
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+
+            background: rgba(247,245,240,0.93);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 18px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--lavender-dark);
+        }
+
+        .back-link {
+            font-size: 12px;
+            font-weight: 700;
+
+            color: var(--muted);
+
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--ink);
+        }
+
+
+        /* =========================================
+           GENERAL
+        ========================================= */
+
+        .container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 0 30px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.8px;
+
+            text-transform: uppercase;
+
+            color: var(--lavender-dark);
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--lavender-dark);
+        }
+
+        .section-label {
+            margin-bottom: 18px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+        .section-title {
+            max-width: 800px;
+
+            font-size: clamp(42px, 6vw, 70px);
+
+            line-height: 0.98;
+
+            letter-spacing: -4px;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .case-hero {
+            padding-top: 120px;
+            padding-bottom: 100px;
+        }
+
+        .hero-grid {
+            display: grid;
+
+            grid-template-columns: 1.4fr 0.6fr;
+
+            gap: 80px;
+
+            align-items: end;
+        }
+
+        .case-hero h1 {
+            margin: 25px 0;
+
+            max-width: 850px;
+
+            font-size: clamp(55px, 8vw, 105px);
+
+            line-height: 0.87;
+
+            letter-spacing: -6px;
+        }
+
+        .case-hero h1 em {
+            font-style: normal;
+
+            color: var(--lavender-dark);
+        }
+
+        .hero-description {
+            max-width: 700px;
+
+            font-size: 20px;
+
+            color: var(--muted);
+        }
+
+        .project-meta {
+            border-left: 2px solid var(--ink);
+
+            padding-left: 25px;
+        }
+
+        .meta-label {
+            margin-bottom: 7px;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.4px;
+
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+        .meta-value {
+            margin-bottom: 25px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================
+           PROJECT STATS
+        ========================================= */
+
+        .stats {
+            border-top: 1px solid var(--ink);
+
+            border-bottom: 1px solid var(--ink);
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat {
+            padding: 30px 25px;
+
+            border-right: 1px solid var(--line);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: 35px;
+
+            font-weight: 800;
+
+            letter-spacing: -2px;
+        }
+
+        .stat-label {
+            margin-top: 5px;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+
+        /* =========================================
+           SECTION LAYOUT
+        ========================================= */
+
+        .two-column {
+            display: grid;
+
+            grid-template-columns: 0.7fr 1.3fr;
+
+            gap: 100px;
+        }
+
+        .section-copy {
+            max-width: 720px;
+
+            font-size: 17px;
+
+            color: #555;
+        }
+
+        .section-copy p {
+            margin-bottom: 20px;
+        }
+
+        .section-copy strong {
+            color: var(--ink);
+        }
+
+
+        /* =========================================
+           PROBLEM
+        ========================================= */
+
+        .problem {
+            border-top: 1px solid var(--line);
+        }
+
+        .problem-question {
+            margin-top: 45px;
+
+            padding: 30px;
+
+            background: var(--soft-lavender);
+
+            border-left: 4px solid var(--lavender-dark);
+        }
+
+        .problem-question-label {
+            margin-bottom: 10px;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+        .problem-question p {
+            font-size: 25px;
+
+            line-height: 1.25;
+
+            letter-spacing: -0.7px;
+        }
+
+
+        /* =========================================
+           REQUIREMENTS
+        ========================================= */
+
+        .requirements {
+            background: var(--ink);
+
+            color: white;
+        }
+
+        .requirements .section-label {
+            color: #aaa;
+        }
+
+        .requirements-intro {
+            max-width: 700px;
+
+            margin-bottom: 60px;
+
+            font-size: 20px;
+
+            color: #aaa;
+        }
+
+        .requirement-list {
+            border-top: 1px solid #444;
+        }
+
+        .requirement {
+            padding: 28px 0;
+
+            display: grid;
+
+            grid-template-columns: 80px 220px 1fr;
+
+            gap: 25px;
+
+            border-bottom: 1px solid #444;
+        }
+
+        .requirement-number {
+            color: var(--lavender);
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+        .requirement h3 {
+            font-size: 15px;
+        }
+
+        .requirement p {
+            color: #aaa;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           CUSTOMER NEED
+        ========================================= */
+
+        .needs-grid {
+            margin-top: 60px;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .need-card {
+            padding: 40px;
+
+            background: white;
+
+            border: 1px solid var(--line);
+        }
+
+        .need-number {
+            margin-bottom: 50px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            color: var(--lavender-dark);
+        }
+
+        .need-card h3 {
+            margin-bottom: 12px;
+
+            font-size: 30px;
+
+            letter-spacing: -1px;
+        }
+
+        .need-card p {
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           MY ROLE
+        ========================================= */
+
+        .role {
+            background: var(--blue);
+        }
+
+        .role-grid {
+            display: grid;
+
+            grid-template-columns: 0.8fr 1.2fr;
+
+            gap: 90px;
+        }
+
+        .role-intro {
+            font-size: 20px;
+
+            color: #444;
+        }
+
+        .role-list {
+            border-top: 1px solid var(--ink);
+        }
+
+        .role-item {
+            padding: 20px 0;
+
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .role-item span:first-child {
+            font-weight: 700;
+        }
+
+        .role-item span:last-child {
+            color: #666;
+
+            text-align: right;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           PRODUCT DECISIONS
+        ========================================= */
+
+        .decisions {
+            border-top: 1px solid var(--line);
+        }
+
+        .decision {
+            display: grid;
+
+            grid-template-columns: 100px 1fr;
+
+            gap: 35px;
+
+            padding: 45px 0;
+
+            border-top: 1px solid var(--line);
+        }
+
+        .decision:first-of-type {
+            margin-top: 60px;
+        }
+
+        .decision-number {
+            font-size: 12px;
+
+            font-weight: 800;
+
+            color: var(--lavender-dark);
+        }
+
+        .decision h3 {
+            margin-bottom: 12px;
+
+            font-size: 30px;
+
+            letter-spacing: -1px;
+        }
+
+        .decision p {
+            max-width: 700px;
+
+            color: var(--muted);
+
+            font-size: 16px;
+        }
+
+
+        /* =========================================
+           EXPERIENCE
+        ========================================= */
+
+        .experience {
+            background: white;
+        }
+
+        .experience-intro {
+            max-width: 700px;
+
+            margin-bottom: 65px;
+
+            font-size: 18px;
+
+            color: var(--muted);
+        }
+
+        .experience-flow {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            border-top: 1px solid var(--ink);
+
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .experience-step {
+            padding: 35px 25px;
+
+            border-right: 1px solid var(--line);
+        }
+
+        .experience-step:last-child {
+            border-right: none;
+        }
+
+        .experience-step-number {
+            margin-bottom: 40px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            color: var(--lavender-dark);
+        }
+
+        .experience-step h3 {
+            margin-bottom: 10px;
+
+            font-size: 19px;
+        }
+
+        .experience-step p {
+            font-size: 13px;
+
+            color: var(--muted);
+        }
+
+
+        /* =========================================
+           TECHNICAL
+        ========================================= */
+
+        .technical {
+            background: var(--soft-lavender);
+        }
+
+        .technical-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+
+            margin-top: 60px;
+        }
+
+        .technical-card {
+            padding: 35px;
+
+            background: rgba(255,255,255,0.6);
+
+            border: 1px solid rgba(0,0,0,0.12);
+        }
+
+        .technical-card h3 {
+            margin-bottom: 12px;
+
+            font-size: 18px;
+        }
+
+        .technical-card p {
+            color: #555;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           DELIVERY
+        ========================================= */
+
+        .delivery-timeline {
+            margin-top: 65px;
+
+            border-top: 1px solid var(--ink);
+        }
+
+        .timeline-item {
+            display: grid;
+
+            grid-template-columns: 100px 200px 1fr;
+
+            gap: 30px;
+
+            padding: 25px 0;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .timeline-number {
+            color: var(--lavender-dark);
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+        .timeline-item h3 {
+            font-size: 15px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           OUTCOME PLACEHOLDER
+        ========================================= */
+
+        .outcome {
+            background: var(--green);
+        }
+
+        .outcome-box {
+            margin-top: 55px;
+
+            padding: 60px;
+
+            background: rgba(255,255,255,0.5);
+
+            border: 1px dashed rgba(0,0,0,0.25);
+
+            text-align: center;
+        }
+
+        .outcome-box span {
+            display: inline-block;
+
+            margin-bottom: 15px;
+
+            padding: 7px 12px;
+
+            background: var(--ink);
+
+            color: white;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+        .outcome-box h3 {
+            margin-bottom: 10px;
+
+            font-size: 30px;
+
+            letter-spacing: -1px;
+        }
+
+        .outcome-box p {
+            max-width: 600px;
+
+            margin: auto;
+
+            color: #555;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           LEARNINGS
+        ========================================= */
+
+        .learning-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+
+            margin-top: 60px;
+        }
+
+        .learning-card {
+            padding: 35px;
+
+            border: 1px solid var(--line);
+
+            background: white;
+        }
+
+        .learning-card-number {
+            margin-bottom: 45px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            color: var(--lavender-dark);
+        }
+
+        .learning-card h3 {
+            margin-bottom: 12px;
+
+            font-size: 22px;
+        }
+
+        .learning-card p {
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .next-project {
+            padding: 120px 0;
+
+            background: var(--ink);
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .next-project .eyebrow {
+            color: var(--lavender);
+        }
+
+        .next-project .eyebrow::before {
+            background: var(--lavender);
+        }
+
+        .next-project h2 {
+            max-width: 800px;
+
+            margin: 25px auto 35px;
+
+            font-size: clamp(45px, 7vw, 85px);
+
+            line-height: 0.9;
+
+            letter-spacing: -5px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 13px 22px;
+
+            border: 1px solid white;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            transition: 0.2s ease;
+        }
+
+        .button:hover {
+            background: white;
+
+            color: var(--ink);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            padding: 25px 0;
+
+            background: var(--ink);
+
+            color: #888;
+
+            border-top: 1px solid #333;
+        }
+
+        .footer-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 0 30px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 10px;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .container {
+                padding: 0 22px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero-grid,
+            .two-column,
+            .role-grid {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat:nth-child(-n+2) {
+                border-bottom: 1px solid var(--line);
+            }
+
+            .requirement {
+                grid-template-columns: 50px 1fr;
+            }
+
+            .requirement p {
+                grid-column: 2;
+            }
+
+            .needs-grid,
+            .technical-grid,
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-flow {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .experience-step:nth-child(2) {
+                border-right: none;
+            }
+
+            .experience-step:nth-child(-n+2) {
+                border-bottom: 1px solid var(--line);
+            }
+
+            .timeline-item {
+                grid-template-columns: 50px 1fr;
+            }
+
+            .timeline-item p {
+                grid-column: 2;
+            }
+
+            .decision {
+                grid-template-columns: 50px 1fr;
+            }
+
+            .footer-container {
+                display: block;
+            }
+
+            .footer-container span {
+                display: block;
+
+                margin-bottom: 5px;
+            }
+        }
+
+
+        @media (max-width: 550px) {
+
+            .case-hero h1 {
+                font-size: 58px;
+
+                letter-spacing: -4px;
+            }
+
+            .section-title {
+                letter-spacing: -3px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .experience-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-step {
+                border-right: none !important;
+
+                border-bottom: 1px solid var(--line);
+            }
+
+            .experience-step:last-child {
+                border-bottom: none;
+            }
+
+            .outcome-box {
+                padding: 35px 20px;
+            }
+
+            .next-project h2 {
+                letter-spacing: -3px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <nav>
+
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                JC<span>.</span>
+            </a>
+
+            <a href="index.html#work" class="back-link">
+                ← Back to selected work
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <section class="case-hero">
+
+        <div class="container">
+
+            <div class="hero-grid">
+
+                <div>
+
+                    <div class="eyebrow">
+                        Product Case Study
+                    </div>
+
+                    <h1>
+                        Loyalty Tier
+                        <em>Experience.</em>
+                    </h1>
+
+                    <p class="hero-description">
+
+                        Redesigning the customer experience around a
+                        fundamental change to RaceTrac's loyalty program:
+                        for the first time, customers would need to
+                        re-earn their tier each year.
+
+                    </p>
+
+                </div>
+
+
+                <div class="project-meta">
+
+                    <div class="meta-label">
+                        Project
+                    </div>
+
+                    <div class="meta-value">
+                        Loyalty Tier Experience
+                    </div>
+
+
+                    <div class="meta-label">
+                        Scope
+                    </div>
+
+                    <div class="meta-value">
+                        Mobile + Web
+                    </div>
+
+
+                    <div class="meta-label">
+                        Focus
+                    </div>
+
+                    <div class="meta-value">
+                        Customer Experience / Loyalty
+                    </div>
+
+
+                    <div class="meta-label">
+                        Role
+                    </div>
+
+                    <div class="meta-value">
+                        Digital Product Owner
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         PROJECT STATS
+    ========================================== -->
+
+    <div class="container">
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    800K+
+                </div>
+
+                <div class="stat-label">
+                    Annual Unique Users
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    6M+
+                </div>
+
+                <div class="stat-label">
+                    Annual Visits
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    6 MO
+                </div>
+
+                <div class="stat-label">
+                    Preparation
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    8–10 HR
+                </div>
+
+                <div class="stat-label">
+                    Overnight Release
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         THE PROBLEM
+    ========================================== -->
+
+    <section class="problem">
+
+        <div class="container">
+
+            <div class="two-column">
+
+                <div>
+
+                    <div class="section-label">
+                        01 / The Problem
+                    </div>
+
+                    <h2 class="section-title">
+                        Changing the rules without losing the customer.
+                    </h2>
+
+                </div>
+
+
+                <div class="section-copy">
+
+                    <p>
+
+                        Historically, RaceTrac loyalty tiers did not
+                        expire. Once a customer reached the highest tier,
+                        they could retain that status indefinitely,
+                        regardless of whether their purchasing behavior
+                        continued to meet the requirements.
+
+                    </p>
+
+                    <p>
+
+                        This created a business challenge. Some of our
+                        highest-tier customers were primarily visiting
+                        RaceTrac to redeem their tier benefit, particularly
+                        their free dispensed beverage, without making
+                        additional purchases.
+
+                    </p>
+
+                    <p>
+
+                        At the same time, RaceTrac was introducing a
+                        <strong>new tier structure and updated point values.</strong>
+
+                        Customers would now need to actively earn points
+                        to achieve their status for the following year.
+
+                    </p>
+
+                    <p>
+
+                        That meant we weren't simply launching a new
+                        feature. We were changing an established customer
+                        expectation.
+
+                    </p>
+
+
+                    <div class="problem-question">
+
+                        <div class="problem-question-label">
+                            The Product Challenge
+                        </div>
+
+                        <p>
+
+                            How do we introduce a significant change to
+                            a loyalty program without making customers
+                            feel like we're taking something away?
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         BUSINESS REQUIREMENTS
+    ========================================== -->
+
+    <section class="requirements">
+
+        <div class="container">
+
+            <div class="section-label">
+                02 / Business Requirements
+            </div>
+
+            <h2 class="section-title">
+                Make the new program achievable, valuable, and understandable.
+            </h2>
+
+            <p class="requirements-intro">
+
+                The business needed the new loyalty structure to reward
+                meaningful engagement while giving customers a clear
+                path toward maintaining or reaching their desired tier.
+
+            </p>
+
+
+            <div class="requirement-list">
+
+
+                <div class="requirement">
+
+                    <div class="requirement-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Achievable Tiers
+                    </h3>
+
+                    <p>
+                        Create a structure where customers could understand
+                        what it takes to reach each tier and see a realistic
+                        path toward achieving it.
+                    </p>
+
+                </div>
+
+
+                <div class="requirement">
+
+                    <div class="requirement-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Meaningful Engagement
+                    </h3>
+
+                    <p>
+                        Ensure tier benefits were connected to continued
+                        customer spending and engagement.
+                    </p>
+
+                </div>
+
+
+                <div class="requirement">
+
+                    <div class="requirement-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Annual Earning
+                    </h3>
+
+                    <p>
+                        Customers would need to earn enough points during
+                        the qualification period to achieve their tier
+                        for the following year.
+                    </p>
+
+                </div>
+
+
+                <div class="requirement">
+
+                    <div class="requirement-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Clear Communication
+                    </h3>
+
+                    <p>
+                        Explain a significant program change across
+                        mobile and web without overwhelming customers.
+                    </p>
+
+                </div>
+
+
+                <div class="requirement">
+
+                    <div class="requirement-number">
+                        05
+                    </div>
+
+                    <h3>
+                        Customer Retention
+                    </h3>
+
+                    <p>
+                        Maintain engagement during a moment where customers
+                        could perceive the change as losing a benefit.
+                    </p>
+
+                </div>
+
+
+                <div class="requirement">
+
+                    <div class="requirement-number">
+                        06
+                    </div>
+
+                    <h3>
+                        Progress Visibility
+                    </h3>
+
+                    <p>
+                        Give customers a clear way to understand their
+                        current status, what they are working toward,
+                        and how close they are to their next tier.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CUSTOMER NEED
+    ========================================== -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-label">
+                03 / Customer Need
+            </div>
+
+            <h2 class="section-title">
+                Clarity first. Then motivation.
+            </h2>
+
+
+            <div class="needs-grid">
+
+
+                <div class="need-card">
+
+                    <div class="need-number">
+                        CUSTOMER NEED / 01
+                    </div>
+
+                    <h3>
+                        Understand the change.
+                    </h3>
+
+                    <p>
+
+                        Customers needed a straightforward explanation
+                        of what was changing, why their tier was changing,
+                        how the new point structure worked, and what they
+                        needed to earn.
+
+                    </p>
+
+                </div>
+
+
+                <div class="need-card">
+
+                    <div class="need-number">
+                        CUSTOMER NEED / 02
+                    </div>
+
+                    <h3>
+                        Feel excited about what's next.
+                    </h3>
+
+                    <p>
+
+                        Simply communicating that customers were losing
+                        their previous status risked creating frustration.
+
+                        We wanted the experience to make the new structure
+                        feel achievable and motivating.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         MY ROLE
+    ========================================== -->
+
+    <section class="role">
+
+        <div class="container">
+
+            <div class="role-grid">
+
+                <div>
+
+                    <div class="section-label">
+                        04 / My Role
+                    </div>
+
+                    <h2 class="section-title">
+                        Owning the experience between business and technology.
+                    </h2>
+
+                </div>
+
+
+                <div>
+
+                    <p class="role-intro">
+
+                        I owned the front-end product experience across
+                        mobile and web, translating the business change
+                        into a customer experience that was clear,
+                        motivating, and technically achievable.
+
+                    </p>
+
+
+                    <div class="role-list">
+
+
+                        <div class="role-item">
+
+                            <span>
+                                Customer Experience
+                            </span>
+
+                            <span>
+                                Defined how the changes would be
+                                communicated to users.
+                            </span>
+
+                        </div>
+
+
+                        <div class="role-item">
+
+                            <span>
+                                Product Experience
+                            </span>
+
+                            <span>
+                                Envisioned the new loyalty Status experience.
+                            </span>
+
+                        </div>
+
+
+                        <div class="role-item">
+
+                            <span>
+                                Requirements
+                            </span>
+
+                            <span>
+                                Translated business needs into
+                                product requirements.
+                            </span>
+
+                        </div>
+
+
+                        <div class="role-item">
+
+                            <span>
+                                UX / UI
+                            </span>
+
+                            <span>
+                                Led the experience direction for
+                                mobile and web.
+                            </span>
+
+                        </div>
+
+
+                        <div class="role-item">
+
+                            <span>
+                                Cross-Functional
+                            </span>
+
+                            <span>
+                                Partnered with UX, technology, data,
+                                loyalty, and business stakeholders.
+                            </span>
+
+                        </div>
+
+
+                        <div class="role-item">
+
+                            <span>
+                                Delivery
+                            </span>
+
+                            <span>
+                                Supported testing, validation, release,
+                                and CMS updates.
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         PRODUCT DECISIONS
+    ========================================== -->
+
+    <section class="decisions">
+
+        <div class="container">
+
+            <div class="section-label">
+                05 / Product Decisions
+            </div>
+
+            <h2 class="section-title">
+                Turning status into a reason to come back.
+            </h2>
+
+
+            <div class="decision">
+
+                <div class="decision-number">
+                    DECISION / 01
+                </div>
+
+                <div>
+
+                    <h3>
+                        Make progress the centerpiece.
+                    </h3>
+
+                    <p>
+
+                        I envisioned a new Status experience that would
+                        become the customer's destination for understanding
+                        their loyalty position.
+
+                        Instead of simply showing a tier name, the
+                        experience would help customers understand what
+                        they were working toward and how close they were.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="decision">
+
+                <div class="decision-number">
+                    DECISION / 02
+                </div>
+
+                <div>
+
+                    <h3>
+                        Turn a difficult change into a goal.
+                    </h3>
+
+                    <p>
+
+                        Customers were potentially losing a benefit they
+                        had historically received indefinitely.
+
+                        Rather than making the experience solely about
+                        what was changing, I focused the experience around
+                        what customers could earn next.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="decision">
+
+                <div class="decision-number">
+                    DECISION / 03
+                </div>
+
+                <div>
+
+                    <h3>
+                        Make the new structure understandable.
+                    </h3>
+
+                    <p>
+
+                        The new tier structure and point values introduced
+                        additional complexity.
+
+                        The digital experience needed to visually connect
+                        points, tiers, progress, and benefits so customers
+                        could understand the relationship between them.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="decision">
+
+                <div class="decision-number">
+                    DECISION / 04
+                </div>
+
+                <div>
+
+                    <h3>
+                        Design for repeat engagement.
+                    </h3>
+
+                    <p>
+
+                        The Status experience wasn't intended to be a
+                        one-time information page.
+
+                        It was designed as a destination customers could
+                        return to throughout the year to check their
+                        progress and understand what they were working toward.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         UX EXPERIENCE
+    ========================================== -->
+
+    <section class="experience">
+
+        <div class="container">
+
+            <div class="section-label">
+                06 / UX + Experience
+            </div>
+
+            <h2 class="section-title">
+                From “what changed?” to “what can I earn?”
+            </h2>
+
+            <p class="experience-intro">
+
+                I led the UI/UX direction for how we communicated the
+                program changes while creating an experience that felt
+                clear, positive, and motivating.
+
+            </p>
+
+
+            <div class="experience-flow">
+
+
+                <div class="experience-step">
+
+                    <div class="experience-step-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Current Status
+                    </h3>
+
+                    <p>
+                        Make the customer's current loyalty position
+                        immediately visible.
+                    </p>
+
+                </div>
+
+
+                <div class="experience-step">
+
+                    <div class="experience-step-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Next Tier
+                    </h3>
+
+                    <p>
+                        Clearly communicate what the customer
+                        could achieve next.
+                    </p>
+
+                </div>
+
+
+                <div class="experience-step">
+
+                    <div class="experience-step-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Progress
+                    </h3>
+
+                    <p>
+                        Show customers how far they had progressed
+                        toward the next year's status.
+                    </p>
+
+                </div>
+
+
+                <div class="experience-step">
+
+                    <div class="experience-step-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Motivation
+                    </h3>
+
+                    <p>
+                        Create a reason to return, earn more,
+                        and continue engaging with the program.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         TECHNICAL CONSIDERATIONS
+    ========================================== -->
+
+    <section class="technical">
+
+        <div class="container">
+
+            <div class="section-label">
+                07 / Technical Considerations
+            </div>
+
+            <h2 class="section-title">
+                The experience was only as good as the data behind it.
+            </h2>
+
+
+            <div class="technical-grid">
+
+
+                <div class="technical-card">
+
+                    <h3>
+                        Loyalty Provider Constraints
+                    </h3>
+
+                    <p>
+
+                        Our loyalty provider did not fully support the
+                        tier reset functionality required for the program
+                        change, creating additional operational and
+                        technical complexity.
+
+                    </p>
+
+                </div>
+
+
+                <div class="technical-card">
+
+                    <h3>
+                        Data Dependencies
+                    </h3>
+
+                    <p>
+
+                        We relied heavily on our data team to support
+                        customer tier updates and validate the results
+                        of the reset.
+
+                    </p>
+
+                </div>
+
+
+                <div class="technical-card">
+
+                    <h3>
+                        Multiple Customer Scenarios
+                    </h3>
+
+                    <p>
+
+                        We needed to test different customer types and
+                        tier levels to ensure the correct status and
+                        experience appeared.
+
+                    </p>
+
+                </div>
+
+
+                <div class="technical-card">
+
+                    <h3>
+                        Cross-System Validation
+                    </h3>
+
+                    <p>
+
+                        The customer's new status needed to be reflected
+                        correctly across the relevant digital experiences
+                        and supporting systems.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         DELIVERY
+    ========================================== -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-label">
+                08 / Delivery
+            </div>
+
+            <h2 class="section-title">
+                Six months of preparation for one overnight transition.
+            </h2>
+
+
+            <div class="delivery-timeline">
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Prepare
+                    </h3>
+
+                    <p>
+
+                        Established requirements, UX direction,
+                        technology dependencies, data needs,
+                        and testing scenarios.
+
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Build
+                    </h3>
+
+                    <p>
+
+                        Developed the new customer-facing experience
+                        across mobile and web.
+
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Internal Test Build
+                    </h3>
+
+                    <p>
+
+                        Created a build without the customer-facing
+                        app block screen so the team could test
+                        the experience internally.
+
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Validate
+                    </h3>
+
+                    <p>
+
+                        Tested multiple customer types and loyalty
+                        scenarios to confirm the new tier and
+                        experience were reflected correctly.
+
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-number">
+                        05
+                    </div>
+
+                    <h3>
+                        Overnight Release
+                    </h3>
+
+                    <p>
+
+                        The app was taken offline for approximately
+                        8–10 hours while the tier reset was completed
+                        with the loyalty provider and data team.
+
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-number">
+                        06
+                    </div>
+
+                    <h3>
+                        CMS Updates
+                    </h3>
+
+                    <p>
+
+                        Manually updated website CMS content to
+                        reflect the new loyalty structure.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         OUTCOME
+    ========================================== -->
+
+    <section class="outcome">
+
+        <div class="container">
+
+            <div class="section-label">
+                09 / Outcome
+            </div>
+
+            <h2 class="section-title">
+                The experience became one of the most visited areas of the app.
+            </h2>
+
+
+            <div class="outcome-box">
+
+                <span>
+                    Metrics Coming Soon
+                </span>
+
+                <h3>
+                    800K+ unique users · 6M+ annual visits
+                </h3>
+
+                <p>
+
+                    Additional business and customer metrics will be
+                    added here as the impact of the new loyalty structure
+                    is evaluated.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         LEARNINGS
+    ========================================== -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-label">
+                10 / What I Learned
+            </div>
+
+            <h2 class="section-title">
+                Product changes don't happen in a vacuum.
+            </h2>
+
+
+            <div class="learning-grid">
+
+
+                <div class="learning-card">
+
+                    <div class="learning-card-number">
+                        LEARNING / 01
+                    </div>
+
+                    <h3>
+                        Change management is product work.
+                    </h3>
+
+                    <p>
+
+                        A major change to an existing customer experience
+                        requires as much thought about customer perception
+                        as it does functionality.
+
+                    </p>
+
+                </div>
+
+
+                <div class="learning-card">
+
+                    <div class="learning-card-number">
+                        LEARNING / 02
+                    </div>
+
+                    <h3>
+                        Constraints shape the product.
+                    </h3>
+
+                    <p>
+
+                        Platform limitations, data dependencies, and
+                        operational constraints need to be considered
+                        early rather than treated as problems at launch.
+
+                    </p>
+
+                </div>
+
+
+                <div class="learning-card">
+
+                    <div class="learning-card-number">
+                        LEARNING / 03
+                    </div>
+
+                    <h3>
+                        Progress can be a product feature.
+                    </h3>
+
+                    <p>
+
+                        Turning a static loyalty status into a visible
+                        journey gave customers a reason to return,
+                        engage, and work toward something.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         NEXT PROJECT
+    ========================================== -->
+
+    <section class="next-project">
+
+        <div class="container">
+
+            <div class="eyebrow">
+                More Product Work
+            </div>
+
+            <h2>
+                Explore the rest of my product portfolio.
+            </h2>
+
+            <a href="index.html#work" class="button">
+                ← Back to Selected Work
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <span>
+                © 2026 Julia Campisano
+            </span>
+
+            <span>
+                Product / Digital / MarTech
+            </span>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
