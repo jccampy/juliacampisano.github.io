@@ -1,61 +1,947 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Julia Campisano | Product Management Portfolio</title>
+
+    <meta name="description" content="Product Management portfolio of Julia Campisano, Digital Product Owner specializing in digital experiences, loyalty, marketing technology, and customer engagement.">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #222222;
+            background: #faf9f7;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 249, 247, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e8e5e0;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: #555555;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #000000;
+        }
+
+        /* GENERAL */
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #777777;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 0.98;
+            letter-spacing: -4px;
+            margin-bottom: 30px;
+        }
+
+        .hero h2 {
+            font-size: clamp(24px, 4vw, 38px);
+            font-weight: 400;
+            color: #555555;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            font-size: 19px;
+            color: #666666;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 22px;
+            border: 1px solid #222222;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .button.primary {
+            background: #222222;
+            color: white;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button.primary:hover {
+            background: #444444;
+        }
+
+        /* SECTION HEADERS */
+
+        .section-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888888;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: clamp(34px, 5vw, 54px);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .section-intro {
+            max-width: 650px;
+            color: #666666;
+            font-size: 17px;
+            margin-bottom: 50px;
+        }
+
+        /* CASE STUDIES */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid #e7e4df;
+            border-radius: 18px;
+            padding: 35px;
+            min-height: 340px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+        }
+
+        .project-number {
+            font-size: 13px;
+            color: #999999;
+            margin-bottom: 35px;
+        }
+
+        .project-card h3 {
+            font-size: 28px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #666666;
+            font-size: 15px;
+        }
+
+        .metrics {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .metric strong {
+            display: block;
+            font-size: 24px;
+            letter-spacing: -1px;
+        }
+
+        .metric span {
+            display: block;
+            font-size: 11px;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+        }
+
+        .view-project {
+            margin-top: 25px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 18px;
+            color: #555555;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .skill {
+            background: white;
+            border: 1px solid #e7e4df;
+            padding: 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* PRODUCT APPROACH */
+
+        .approach {
+            background: #222222;
+            color: white;
+        }
+
+        .approach .section-label {
+            color: #aaaaaa;
+        }
+
+        .approach .section-intro {
+            color: #cccccc;
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            border-top: 1px solid #666666;
+            padding-top: 20px;
+        }
+
+        .process-number {
+            font-size: 12px;
+            color: #999999;
+            margin-bottom: 15px;
+        }
+
+        .process-step h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            font-size: 14px;
+            color: #bbbbbb;
+        }
+
+        /* RESUME */
+
+        .resume-section {
+            text-align: center;
+        }
+
+        .resume-section .section-intro {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+            padding-bottom: 120px;
+        }
+
+        .contact h2 {
+            font-size: clamp(40px, 6vw, 65px);
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #666666;
+            margin-bottom: 30px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #e8e5e0;
+            padding: 30px 0;
+            color: #888888;
+            font-size: 13px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a:nth-child(1) {
+                display: none;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 100px 0 80px;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .process {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-    <h1>Julia Campisano</h1>
+    <!-- NAVIGATION -->
 
-    <h2>Digital Product Owner → Product Manager</h2>
+    <nav>
+        <div class="nav-container">
 
-    <p>
-        I build customer-focused digital products at the intersection
-        of technology, marketing, and loyalty.
-    </p>
+            <div class="logo">
+                Julia Campisano
+            </div>
 
-    <h2>Featured Case Studies</h2>
+            <div class="nav-links">
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+                <a href="#approach">Approach</a>
+                <a href="#contact">Contact</a>
+            </div>
 
-    <h3>Loyalty Tier Experience</h3>
-    <p>
-        Creating a more transparent and engaging loyalty experience
-        for customers.
-    </p>
+        </div>
+    </nav>
 
-    <h3>Braze Implementation</h3>
-    <p>
-        Implementing a customer engagement platform to enable
-        personalized marketing experiences.
-    </p>
 
-    <h3>ID.me Integration</h3>
-    <p>
-        Launching a new capability to provide targeted loyalty offers
-        to verified community groups.
-    </p>
+    <!-- HERO -->
 
-    <h3>Marketing Activation Platform</h3>
-    <p>
-        Building self-service capabilities that enabled marketing
-        teams to launch campaigns more efficiently.
-    </p>
+    <section class="hero">
 
-    <h2>About Me</h2>
+        <div class="container">
 
-    <p>
-        Product Owner with experience leading digital products,
-        marketing technology, loyalty, personalization, and
-        cross-functional Agile teams.
-    </p>
+            <div class="hero-content">
 
-    <h2>Let's Connect</h2>
+                <div class="eyebrow">
+                    Digital Product Owner → Product Manager
+                </div>
 
-    <p>
-        <a href="https://www.linkedin.com/in/juliacampisano/">
-            LinkedIn
-        </a>
-    </p>
+                <h1>
+                    Building digital products people want to use.
+                </h1>
+
+                <h2>
+                    Customer-focused product management at the intersection of technology, marketing & loyalty.
+                </h2>
+
+                <p class="hero-description">
+                    I lead cross-functional teams to turn customer needs and business goals into digital experiences that are useful, measurable, and scalable.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#work" class="button primary">
+                        View My Work
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/juliacampisano/" class="button" target="_blank">
+                        LinkedIn
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CASE STUDIES -->
+
+    <section id="work">
+
+        <div class="container">
+
+            <div class="section-label">
+                Selected Work
+            </div>
+
+            <h2 class="section-title">
+                Product work with measurable impact.
+            </h2>
+
+            <p class="section-intro">
+                A selection of digital product, loyalty, marketing technology, and customer experience initiatives I've helped lead from idea through delivery.
+            </p>
+
+
+            <div class="projects">
+
+
+                <!-- PROJECT 1 -->
+
+                <div class="project-card">
+
+                    <div>
+
+                        <div class="project-number">
+                            01 / LOYALTY
+                        </div>
+
+                        <h3>
+                            Loyalty Tier Experience
+                        </h3>
+
+                        <p>
+                            Redesigned the loyalty experience to give customers greater visibility into their current status, progress, and benefits.
+                        </p>
+
+                        <div class="metrics">
+
+                            <div class="metric">
+                                <strong>800K+</strong>
+                                <span>Unique Users</span>
+                            </div>
+
+                            <div class="metric">
+                                <strong>6M+</strong>
+                                <span>Annual Visits</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="view-project">
+                        View Case Study →
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT 2 -->
+
+                <div class="project-card">
+
+                    <div>
+
+                        <div class="project-number">
+                            02 / MARKETING TECHNOLOGY
+                        </div>
+
+                        <h3>
+                            Braze Implementation
+                        </h3>
+
+                        <p>
+                            Led the implementation of Braze to give marketing teams new capabilities for personalized customer engagement across digital channels.
+                        </p>
+
+                        <div class="metrics">
+
+                            <div class="metric">
+                                <strong>50%</strong>
+                                <span>Daily User Growth</span>
+                            </div>
+
+                            <div class="metric">
+                                <strong>750K</strong>
+                                <span>Monthly Users</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="view-project">
+                        View Case Study →
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT 3 -->
+
+                <div class="project-card">
+
+                    <div>
+
+                        <div class="project-number">
+                            03 / INTEGRATION
+                        </div>
+
+                        <h3>
+                            ID.me Integration
+                        </h3>
+
+                        <p>
+                            Launched an integration that enabled targeted loyalty offers for verified community groups, creating a new customer acquisition and engagement opportunity.
+                        </p>
+
+                        <div class="metrics">
+
+                            <div class="metric">
+                                <strong>35K+</strong>
+                                <span>Verified Members</span>
+                            </div>
+
+                            <div class="metric">
+                                <strong>4K+</strong>
+                                <span>Net-New Users</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="view-project">
+                        View Case Study →
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT 4 -->
+
+                <div class="project-card">
+
+                    <div>
+
+                        <div class="project-number">
+                            04 / PLATFORM
+                        </div>
+
+                        <h3>
+                            Marketing Activation Platform
+                        </h3>
+
+                        <p>
+                            Helped build self-service marketing capabilities that enabled teams to launch digital campaigns and experiences with less dependency on development.
+                        </p>
+
+                    </div>
+
+                    <div class="view-project">
+                        View Case Study →
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div>
+
+                    <div class="section-label">
+                        About Me
+                    </div>
+
+                    <h2 class="section-title">
+                        Product, technology & customer experience.
+                    </h2>
+
+                </div>
+
+
+                <div class="about-text">
+
+                    <p>
+                        I'm a Digital Product Owner with experience leading products across digital experiences, loyalty, personalization, marketing technology, and customer engagement.
+                    </p>
+
+                    <p>
+                        I work closely with business stakeholders, UX designers, technology partners, and Agile teams to translate customer and business needs into products that deliver measurable outcomes.
+                    </p>
+
+                    <p>
+                        My approach combines customer empathy, strategic thinking, strong prioritization, and hands-on execution.
+                    </p>
+
+
+                    <div class="skills">
+
+                        <div class="skill">
+                            Product Strategy
+                        </div>
+
+                        <div class="skill">
+                            Product Discovery
+                        </div>
+
+                        <div class="skill">
+                            Agile Delivery
+                        </div>
+
+                        <div class="skill">
+                            Backlog Management
+                        </div>
+
+                        <div class="skill">
+                            UX Collaboration
+                        </div>
+
+                        <div class="skill">
+                            Loyalty & Personalization
+                        </div>
+
+                        <div class="skill">
+                            Marketing Technology
+                        </div>
+
+                        <div class="skill">
+                            Stakeholder Management
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCT APPROACH -->
+
+    <section id="approach" class="approach">
+
+        <div class="container">
+
+            <div class="section-label">
+                My Product Approach
+            </div>
+
+            <h2 class="section-title">
+                From customer problem to measurable outcome.
+            </h2>
+
+            <p class="section-intro">
+                I believe strong products come from understanding the problem first, aligning teams around a clear outcome, and continuously learning from what happens after launch.
+            </p>
+
+
+            <div class="process">
+
+
+                <div class="process-step">
+
+                    <div class="process-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Discover
+                    </h3>
+
+                    <p>
+                        Understand the customer, business problem, and opportunity.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <div class="process-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Define
+                    </h3>
+
+                    <p>
+                        Establish goals, requirements, success metrics, and scope.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <div class="process-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Prioritize
+                    </h3>
+
+                    <p>
+                        Focus the team on the highest-value problems and opportunities.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <div class="process-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Build
+                    </h3>
+
+                    <p>
+                        Partner with design and technology to deliver the right solution.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <div class="process-number">
+                        05
+                    </div>
+
+                    <h3>
+                        Measure
+                    </h3>
+
+                    <p>
+                        Evaluate outcomes, learn from customers, and identify what's next.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESUME -->
+
+    <section class="resume-section">
+
+        <div class="container">
+
+            <div class="section-label">
+                Resume
+            </div>
+
+            <h2 class="section-title">
+                Want the full story?
+            </h2>
+
+            <p class="section-intro">
+                Explore my professional experience, certifications, and product management background.
+            </p>
+
+            <a href="#" class="button primary">
+                View Resume
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact">
+
+        <div class="container">
+
+            <div class="section-label">
+                Let's Connect
+            </div>
+
+            <h2>
+                Have a product problem to solve?
+            </h2>
+
+            <p>
+                I'm always interested in connecting with people building meaningful digital products.
+            </p>
+
+            <div class="buttons" style="justify-content: center;">
+
+                <a href="https://www.linkedin.com/in/juliacampisano/" class="button primary" target="_blank">
+                    Connect on LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <span>
+                © 2026 Julia Campisano
+            </span>
+
+            <span>
+                Product Management Portfolio
+            </span>
+
+        </div>
+
+    </footer>
+
 
 </body>
 </html>
