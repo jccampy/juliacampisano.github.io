@@ -8,7 +8,7 @@
 
     <meta
         name="description"
-        content="Julia Campisano is a Digital Product Owner focused on turning business requirements and customer needs into thoughtful digital products."
+        content="Julia Campisano is a Digital Product Owner focused on translating business requirements, customer needs, and technical constraints into thoughtful digital products."
     >
 
     <style>
@@ -307,7 +307,7 @@
 
 
         /* =========================================
-           MARQUEE / TAG STRIP
+           TAG STRIP
         ========================================= */
 
         .tag-strip {
@@ -396,6 +396,10 @@
             letter-spacing: -2.5px;
         }
 
+        .case-study h3 a:hover {
+            color: var(--lavender-dark);
+        }
+
         .case-description {
             max-width: 650px;
 
@@ -471,15 +475,20 @@
         }
 
         .case-link {
+            display: inline-block;
             margin-top: 25px;
 
             font-size: 12px;
             font-weight: 800;
         }
 
+        .case-link:hover {
+            color: var(--lavender-dark);
+        }
+
 
         /* =========================================
-           INTERSECTION / VALUE PROP
+           INTERSECTION
         ========================================= */
 
         .intersection {
@@ -537,7 +546,6 @@
 
         .intersection-center {
             margin-top: 45px;
-
             text-align: center;
         }
 
@@ -607,7 +615,7 @@
 
 
         /* =========================================
-           REQUIREMENTS SECTION
+           REQUIREMENTS
         ========================================= */
 
         .requirements {
@@ -709,7 +717,6 @@
 
         .detail-card h3 {
             margin-bottom: 8px;
-
             font-size: 14px;
         }
 
@@ -923,17 +930,15 @@
 <body>
 
 
-    <!-- =========================================
-         NAVIGATION
-    ========================================== -->
+    <!-- NAVIGATION -->
 
     <nav>
 
         <div class="nav-container">
 
-            <div class="logo">
+            <a href="#" class="logo">
                 JC<span>.</span>
-            </div>
+            </a>
 
             <div class="nav-links">
 
@@ -953,9 +958,7 @@
 
 
 
-    <!-- =========================================
-         HERO
-    ========================================== -->
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -976,9 +979,9 @@
 
                     <p class="hero-description">
 
-                        I translate customer needs and business goals into
-                        digital experiences that are thoughtful, technically
-                        feasible, and measurable.
+                        I translate customer needs, business goals,
+                        and technical constraints into digital experiences
+                        that are thoughtful, feasible, and measurable.
 
                     </p>
 
@@ -1040,9 +1043,7 @@
 
 
 
-    <!-- =========================================
-         TAG STRIP
-    ========================================== -->
+    <!-- TAG STRIP -->
 
     <div class="tag-strip">
 
@@ -1050,7 +1051,11 @@
 
             <div class="tag">Product Strategy</div>
 
+            <div class="tag">Business Requirements</div>
+
             <div class="tag">Customer Experience</div>
+
+            <div class="tag">Technical Discovery</div>
 
             <div class="tag">Agile Delivery</div>
 
@@ -1066,9 +1071,7 @@
 
 
 
-    <!-- =========================================
-         SELECTED WORK
-    ========================================== -->
+    <!-- SELECTED WORK -->
 
     <section id="work">
 
@@ -1111,34 +1114,46 @@
                 <div>
 
                     <div class="case-type">
-                        Loyalty / Customer Experience
+                        Loyalty / Customer Experience / Mobile
                     </div>
 
                     <h3>
-    <a href="loyalty-tier-experience.html">
-        Loyalty Tier Experience
-    </a>
-</h3>
+
+                        <a href="loyalty-tier-experience.html">
+                            Loyalty Tier Experience
+                        </a>
+
+                    </h3>
 
                     <p class="case-description">
 
-                        Created a more transparent digital loyalty
-                        experience that helped customers understand
-                        their current status, progress, and benefits.
+                        Reimagined the digital loyalty experience during
+                        the program's first-ever tier expiration, helping
+                        customers understand a new earning structure and
+                        track progress toward their next status.
 
                     </p>
 
                     <div class="case-tags">
 
-                        <span class="case-tag">Product Strategy</span>
+                        <span class="case-tag">
+                            Product Strategy
+                        </span>
 
-                        <span class="case-tag">UX</span>
+                        <span class="case-tag">
+                            UX
+                        </span>
 
-                        <span class="case-tag">Loyalty</span>
+                        <span class="case-tag">
+                            Loyalty
+                        </span>
 
-                        <span class="case-tag">Agile</span>
+                        <span class="case-tag">
+                            Technical Delivery
+                        </span>
 
                     </div>
+
 
                     <div class="case-metrics">
 
@@ -1153,6 +1168,7 @@
                             </div>
 
                         </div>
+
 
                         <div>
 
@@ -1179,15 +1195,18 @@
                             Product Question
                         </strong>
 
-                        How might we make loyalty progression
-                        easier to understand while creating
-                        a more engaging digital experience?
+                        How might we introduce a major loyalty
+                        program change clearly while keeping customers
+                        engaged and motivated to earn their next status?
 
                     </div>
 
-<a href="loyalty-tier-experience.html" class="case-link">
-    View Case Study →
-</a>
+                    <a
+                        href="loyalty-tier-experience.html"
+                        class="case-link"
+                    >
+                        View Case Study →
+                    </a>
 
                 </div>
 
@@ -1206,56 +1225,75 @@
                 <div>
 
                     <div class="case-type">
-                        Marketing Technology / Platform
+                        MarTech / Platform / Personalization
                     </div>
 
                     <h3>
-                        Braze Implementation
+
+                        <a href="customer-engagement-platform.html">
+                            Customer Engagement Platform
+                        </a>
+
                     </h3>
 
                     <p class="case-description">
 
-                        Led the implementation of a new customer
-                        engagement platform, enabling personalized
-                        messaging and new marketing activation
-                        capabilities across digital channels.
+                        Led the end-to-end product implementation of
+                        Braze, transforming a fragmented communication
+                        ecosystem into a centralized platform for targeted,
+                        cross-channel customer journeys.
 
                     </p>
 
+
                     <div class="case-tags">
 
-                        <span class="case-tag">Platform</span>
+                        <span class="case-tag">
+                            Platform Strategy
+                        </span>
 
-                        <span class="case-tag">MarTech</span>
+                        <span class="case-tag">
+                            Business Requirements
+                        </span>
 
-                        <span class="case-tag">Personalization</span>
+                        <span class="case-tag">
+                            Technical Discovery
+                        </span>
 
-                        <span class="case-tag">Stakeholders</span>
+                        <span class="case-tag">
+                            MarTech
+                        </span>
+
+                        <span class="case-tag">
+                            Mobile + Web
+                        </span>
 
                     </div>
+
 
                     <div class="case-metrics">
 
                         <div>
 
                             <div class="metric-number">
-                                +50%
+                                ~1 MO
                             </div>
 
                             <div class="metric-label">
-                                Daily Users
+                                Initial Release
                             </div>
 
                         </div>
 
+
                         <div>
 
                             <div class="metric-number">
-                                750K
+                                ~10 MO
                             </div>
 
                             <div class="metric-label">
-                                Monthly Users
+                                Platform Rollout
                             </div>
 
                         </div>
@@ -1273,15 +1311,20 @@
                             Product Question
                         </strong>
 
-                        How might we give marketing teams
-                        faster, more flexible ways to engage
-                        customers across digital channels?
+                        How might we centralize customer engagement
+                        while giving Marketing better targeting,
+                        greater flexibility, and less dependency
+                        on development?
 
                     </div>
 
-                    <div class="case-link">
+
+                    <a
+                        href="customer-engagement-platform.html"
+                        class="case-link"
+                    >
                         View Case Study →
-                    </div>
+                    </a>
 
                 </div>
 
@@ -1309,24 +1352,34 @@
 
                     <p class="case-description">
 
-                        Launched a third-party integration that
-                        enabled targeted loyalty offers for
-                        verified community groups and created
-                        a new customer acquisition opportunity.
+                        Launched a third-party verification integration
+                        that enabled targeted loyalty offers for verified
+                        community groups while creating a new customer
+                        acquisition opportunity.
 
                     </p>
 
+
                     <div class="case-tags">
 
-                        <span class="case-tag">Integration</span>
+                        <span class="case-tag">
+                            Integration
+                        </span>
 
-                        <span class="case-tag">Customer Segmentation</span>
+                        <span class="case-tag">
+                            Customer Segmentation
+                        </span>
 
-                        <span class="case-tag">Loyalty</span>
+                        <span class="case-tag">
+                            Loyalty
+                        </span>
 
-                        <span class="case-tag">Delivery</span>
+                        <span class="case-tag">
+                            Technical Delivery
+                        </span>
 
                     </div>
+
 
                     <div class="case-metrics">
 
@@ -1341,6 +1394,7 @@
                             </div>
 
                         </div>
+
 
                         <div>
 
@@ -1368,13 +1422,13 @@
                         </strong>
 
                         How might we use customer verification
-                        to create a more relevant loyalty
-                        experience?
+                        to create a more relevant loyalty experience
+                        while reaching new customers?
 
                     </div>
 
                     <div class="case-link">
-                        View Case Study →
+                        Case Study Coming Soon
                     </div>
 
                 </div>
@@ -1403,22 +1457,30 @@
 
                     <p class="case-description">
 
-                        Helped create self-service capabilities
-                        that enabled marketing teams to launch
-                        digital campaigns and experiences with
-                        less dependency on development.
+                        Helped create self-service capabilities that
+                        enabled Marketing teams to launch digital
+                        campaigns and experiences with less dependency
+                        on development.
 
                     </p>
 
                     <div class="case-tags">
 
-                        <span class="case-tag">Platform</span>
+                        <span class="case-tag">
+                            Platform
+                        </span>
 
-                        <span class="case-tag">Requirements</span>
+                        <span class="case-tag">
+                            Requirements
+                        </span>
 
-                        <span class="case-tag">Self-Service</span>
+                        <span class="case-tag">
+                            Self-Service
+                        </span>
 
-                        <span class="case-tag">Efficiency</span>
+                        <span class="case-tag">
+                            Efficiency
+                        </span>
 
                     </div>
 
@@ -1433,14 +1495,14 @@
                             Product Question
                         </strong>
 
-                        How might we remove unnecessary
-                        technical dependencies while maintaining
-                        a consistent digital experience?
+                        How might we remove unnecessary technical
+                        dependencies while maintaining a consistent
+                        digital experience?
 
                     </div>
 
                     <div class="case-link">
-                        View Case Study →
+                        Case Study Coming Soon
                     </div>
 
                 </div>
@@ -1453,9 +1515,7 @@
 
 
 
-    <!-- =========================================
-         INTERSECTION
-    ========================================== -->
+    <!-- PRODUCT INTERSECTION -->
 
     <section class="intersection">
 
@@ -1471,7 +1531,6 @@
 
 
             <div class="intersection-grid">
-
 
                 <div class="intersection-card">
 
@@ -1524,7 +1583,7 @@
                     <p>
                         What can we build?
                         What integrations are required?
-                        How do we create something scalable?
+                        What constraints and dependencies matter?
                     </p>
 
                 </div>
@@ -1546,9 +1605,7 @@
 
 
 
-    <!-- =========================================
-         PRODUCT APPROACH
-    ========================================== -->
+    <!-- PRODUCT APPROACH -->
 
     <section id="approach">
 
@@ -1585,8 +1642,8 @@
                     </h3>
 
                     <p>
-                        Understand the customer problem,
-                        business objective, and opportunity.
+                        Define the customer problem, business objective,
+                        context, and opportunity.
                     </p>
 
                 </div>
@@ -1603,8 +1660,8 @@
                     </h3>
 
                     <p>
-                        Turn business requirements and
-                        customer needs into clear product requirements.
+                        Turn business requirements and customer needs
+                        into clear product and technical requirements.
                     </p>
 
                 </div>
@@ -1621,8 +1678,8 @@
                     </h3>
 
                     <p>
-                        Align stakeholders around the
-                        highest-value problems and tradeoffs.
+                        Align stakeholders around value, dependencies,
+                        technical realities, and tradeoffs.
                     </p>
 
                 </div>
@@ -1639,8 +1696,8 @@
                     </h3>
 
                     <p>
-                        Partner with UX and technology
-                        to turn requirements into experiences.
+                        Partner with UX and Engineering to turn
+                        requirements into real customer experiences.
                     </p>
 
                 </div>
@@ -1657,12 +1714,11 @@
                     </h3>
 
                     <p>
-                        Measure outcomes, gather feedback,
-                        and determine what comes next.
+                        Measure outcomes, gather feedback, uncover
+                        constraints, and determine what comes next.
                     </p>
 
                 </div>
-
 
             </div>
 
@@ -1672,9 +1728,7 @@
 
 
 
-    <!-- =========================================
-         REQUIREMENTS
-    ========================================== -->
+    <!-- REQUIREMENTS -->
 
     <section class="requirements">
 
@@ -1700,8 +1754,9 @@
 
                         My role is to ask the right questions,
                         uncover dependencies, clarify requirements,
-                        and turn a broad idea into something a team
-                        can actually design and build.
+                        challenge assumptions, and turn a broad idea
+                        into something a team can actually design,
+                        build, and measure.
 
                     </p>
 
@@ -1757,7 +1812,21 @@
                         </div>
 
                         <div class="requirement-text">
-                            What systems, integrations, and dependencies matter?
+                            What systems, integrations, constraints,
+                            and dependencies matter?
+                        </div>
+
+                    </div>
+
+
+                    <div class="requirement">
+
+                        <div class="requirement-label">
+                            Tradeoffs
+                        </div>
+
+                        <div class="requirement-text">
+                            What do we prioritize, phase, simplify, or challenge?
                         </div>
 
                     </div>
@@ -1786,9 +1855,7 @@
 
 
 
-    <!-- =========================================
-         ABOUT
-    ========================================== -->
+    <!-- ABOUT -->
 
     <section id="about">
 
@@ -1823,11 +1890,11 @@
 
                     <p>
 
-                        I love the balance between the creative and
-                        analytical sides of product: understanding a
-                        customer problem, thinking through the experience,
-                        defining the requirements, and working with
-                        technology to make it real.
+                        I love the balance between the creative,
+                        analytical, and technical sides of product:
+                        understanding a customer problem, thinking through
+                        the experience, defining the requirements, and
+                        working with technology to make it real.
 
                     </p>
 
@@ -1835,9 +1902,8 @@
 
                         I'm currently focused on growing into a Product
                         Manager role where I can take on broader product
-                        strategy and continue building experiences that
-                        connect customer needs with meaningful business
-                        outcomes.
+                        strategy while continuing to work at the intersection
+                        of customer needs, business outcomes, and technology.
 
                     </p>
 
@@ -1877,9 +1943,9 @@
                     </h3>
 
                     <p>
-                        Product strategy, roadmaps, backlog
-                        prioritization, requirements, user stories,
-                        acceptance criteria, and Agile delivery.
+                        Product strategy, roadmaps, backlog prioritization,
+                        requirements, user stories, acceptance criteria,
+                        tradeoffs, and Agile delivery.
                     </p>
 
                 </div>
@@ -1907,8 +1973,8 @@
 
                     <p>
                         Marketing technology, integrations, CMS,
-                        customer engagement platforms, and platform
-                        capabilities.
+                        SDK-driven capabilities, customer engagement
+                        platforms, and technical dependencies.
                     </p>
 
                 </div>
@@ -1921,8 +1987,9 @@
                     </h3>
 
                     <p>
-                        UX, engineering, marketing, technology partners,
-                        stakeholders, and cross-functional Agile teams.
+                        UX, Engineering, Marketing, architects,
+                        external partners, stakeholders, and
+                        cross-functional Agile teams.
                     </p>
 
                 </div>
@@ -1935,9 +2002,7 @@
 
 
 
-    <!-- =========================================
-         RESUME
-    ========================================== -->
+    <!-- RESUME -->
 
     <section class="resume">
 
@@ -1970,9 +2035,7 @@
 
 
 
-    <!-- =========================================
-         CONTACT
-    ========================================== -->
+    <!-- CONTACT -->
 
     <section id="contact" class="contact">
 
@@ -2005,9 +2068,7 @@
 
 
 
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
+    <!-- FOOTER -->
 
     <footer>
 
