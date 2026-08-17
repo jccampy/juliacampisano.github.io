@@ -470,6 +470,34 @@
             padding: 30px;
         }
 
+        .project-image-wrapper {
+    position: absolute;
+
+    left: 40px;
+    right: 40px;
+    top: 85px;
+    bottom: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.project-image {
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.16);
+}
+
         .visual-placeholder-content {
             max-width: 330px;
         }
@@ -1471,27 +1499,15 @@
                     </div>
 
 
-                    <div class="visual-placeholder">
+                <div class="project-image-wrapper">
 
-                        <div class="visual-placeholder-content">
+    <img
+        src="assets/loyalty/status-page.png"
+        alt="Loyalty tier status and progress experience"
+        class="project-image"
+    >
 
-                            <div class="visual-placeholder-small">
-                                Recommended Visual
-                            </div>
-
-                            <h4>
-                                Loyalty Status Experience
-                            </h4>
-
-                            <p>
-
-                                Add a polished mobile app mockup here
-                                showing the Status page, tier progress,
-                                or next-tier experience.
-
-                            </p>
-
-                        </div>
+</div>
 
                     </div>
 
