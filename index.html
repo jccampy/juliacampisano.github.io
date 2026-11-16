@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Julia Campisano | Product Portfolio</title>
+<meta name="description" content="Julia Campisano: loyalty, personalization, customer engagement and customer data products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --oat:#f5efe6; --paper:#fbf8f3; --ink:#2b1b20; --muted:#7b6a6c; --line:#e4d7c9;
+    --cherry:#7d2333; --cherry-deep:#5f1826; --blush:#f1d3cc; --blush-deep:#e6b3a9; --butter:#f2e1a8;
+    --serif:"Instrument Serif",Georgia,serif; --sans:"Manrope",system-ui,sans-serif; --mono:"DM Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--oat);color:var(--ink);font-size:16.5px;line-height:1.6}
+  a{color:inherit}
+  .mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  em,.it{font-family:var(--serif);font-style:italic;font-weight:400}
+
+  /* sidebar */
+  .side{position:fixed;inset:0 auto 0 0;width:320px;background:var(--cherry);color:var(--oat);padding:40px 32px;display:flex;flex-direction:column;justify-content:space-between;overflow-y:auto}
+  .page{margin-left:320px}
+  .name{font-family:var(--serif);font-size:54px;line-height:.92;letter-spacing:-.01em}
+  .name span{display:block;font-style:italic;color:var(--butter)}
+  .tagline{margin-top:18px;font-size:15px;color:#ecd2d0;max-width:240px}
+  .side nav{margin-top:44px}
+  .side nav a{text-decoration:none;display:flex;align-items:baseline;gap:14px;padding:9px 0;font-size:15px;color:#f4e3df}
+  .side nav a .mono{font-size:11px;color:var(--blush-deep)}
+  .side nav a:hover{color:var(--butter)}
+  .now{border-top:1px solid rgba(245,239,230,.25);padding-top:18px}
+  .now p{margin-top:6px;font-size:15px}
+  .now .mono{color:var(--butter)}
+  .side-links{margin-top:20px;display:flex;gap:18px}
+  .side-links a{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--butter);text-decoration:none;border-bottom:1px solid var(--butter)}
+
+  /* hero */
+  .hero{padding:88px 72px 64px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-120px;top:-80px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle at 40% 40%,var(--butter),var(--blush) 55%,transparent 72%);opacity:.75;z-index:0}
+  .hero > *{position:relative;z-index:1}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(52px,7.4vw,108px);line-height:.95;letter-spacing:-.02em}
+  .hero h1 em{color:var(--cherry)}
+  .hero p{margin-top:28px;max-width:600px;font-size:18px;color:var(--muted)}
+
+  /* stat strip */
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);margin:0 72px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+  .strip div{padding:22px 20px 22px 0}
+  .strip b{display:block;font-family:var(--serif);font-weight:400;font-size:44px;line-height:1}
+  .strip span{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
+
+  section{padding:88px 72px}
+  .label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:32px;gap:16px}
+  .label h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.6vw,64px);line-height:1;letter-spacing:-.01em}
+  .label h2 em{color:var(--cherry)}
+
+  /* project index */
+  .index{border-top:1px solid var(--ink)}
+  .proj{border-bottom:1px solid var(--line)}
+  .proj summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:52px 1fr 170px 120px 36px;gap:16px;align-items:center;padding:24px 0}
+  .proj summary::-webkit-details-marker{display:none}
+  .proj .n{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .proj .t{font-family:var(--serif);font-size:clamp(26px,2.8vw,36px);line-height:1.05}
+  .proj .k{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .proj .big{font-family:var(--serif);font-size:28px;text-align:right;color:var(--cherry)}
+  .proj .pm{width:36px;height:36px;border-radius:50%;background:var(--blush);display:grid;place-items:center;font-size:18px;transition:.25s}
+  .proj summary:hover .t{font-style:italic}
+  .proj[open] .pm{background:var(--cherry);color:var(--oat);transform:rotate(45deg)}
+
+  .spread{padding:4px 0 56px 68px}
+  .spread .intro{font-size:19px;max-width:720px}
+  .q{margin-top:24px;max-width:720px;background:var(--blush);border-radius:18px;padding:20px 24px}
+  .q .mono{display:block;color:var(--cherry);margin-bottom:6px}
+  .q p{font-family:var(--serif);font-size:24px;line-height:1.25}
+  .nums{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+  .nums div{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .nums b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(30px,3vw,42px);line-height:1}
+  .nums span{display:block;margin-top:8px;font-size:13px;color:var(--muted);line-height:1.35}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px}
+  .cols h4{font-family:var(--mono);font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--cherry);padding-bottom:8px;border-bottom:1px solid var(--ink);margin-bottom:12px}
+  .cols p,.cols li{font-size:15.5px}
+  .cols ul{padding-left:18px}
+  .cols li{margin-bottom:6px}
+
+  /* screenshot tray */
+  .tray{margin-top:40px;background:var(--butter);border-radius:24px;padding:28px;display:flex;gap:20px;overflow-x:auto;align-items:flex-start;scroll-snap-type:x mandatory}
+  .tray.blush{background:var(--blush)}
+  .tray figure{flex:0 0 auto;width:220px;scroll-snap-align:start}
+  .tray figure.w{width:300px}
+  .tray img{width:100%;display:block;border-radius:18px;box-shadow:0 10px 30px rgba(43,27,32,.18);background:#fff}
+  .tray figcaption{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);opacity:.7;margin-top:12px}
+  .wide{margin-top:28px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px}
+  .wide img{width:100%;display:block;border-radius:10px}
+  .wide figcaption{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:10px}
+
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+  .ba figure{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:14px}
+  .ba img{width:100%;display:block;border-radius:10px}
+  .ba figcaption{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:10px}
+  .ba figcaption b{color:var(--cherry);font-weight:500}
+  .diagram{margin-top:28px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px}
+  .diagram svg{width:100%;height:auto;display:block}
+
+  /* approach */
+  .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .trio div{border-radius:22px;padding:30px}
+  .trio div:nth-child(1){background:var(--butter)}
+  .trio div:nth-child(2){background:var(--blush)}
+  .trio div:nth-child(3){background:var(--cherry);color:var(--oat)}
+  .trio h3{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1;margin-bottom:12px}
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:48px;counter-reset:f}
+  .flow div{counter-increment:f;border-top:1px solid var(--ink);padding-top:14px}
+  .flow div::before{content:counter(f,decimal-leading-zero);display:block;font-family:var(--mono);font-size:11.5px;color:var(--cherry);margin-bottom:6px}
+  .flow b{display:block;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1;margin-bottom:6px}
+  .flow span{font-size:14.5px;color:var(--muted)}
+
+  /* experience */
+  .xp{border-top:1px solid var(--ink)}
+  .xp-row{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid var(--line)}
+  .xp-row .co{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--cherry)}
+  .xp-row .when{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:4px}
+  .xp-row h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1}
+  .xp-row p{margin-top:8px;color:var(--muted);font-size:15.5px;max-width:680px}
+
+  /* about */
+  .about{display:grid;grid-template-columns:1.3fr 1fr;gap:56px}
+  .about p{font-size:18px;margin-bottom:16px}
+  .badges{display:flex;flex-wrap:wrap;gap:10px;align-content:start}
+  .badges span{border-radius:999px;padding:9px 16px;font-size:14px;background:var(--paper);border:1px solid var(--line)}
+  .badges span:nth-child(1){background:var(--butter);border-color:var(--butter)}
+  .badges span:nth-child(2){background:var(--blush);border-color:var(--blush)}
+  .btn{display:inline-block;margin-top:8px;padding:13px 22px;background:var(--cherry);color:var(--oat);text-decoration:none;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;border-radius:999px}
+  .btn:hover{background:var(--cherry-deep)}
+
+  /* contact */
+  .contact{margin:0 72px 72px;padding:72px 56px;border-radius:32px;background:var(--blush);position:relative;overflow:hidden}
+  .contact::after{content:"";position:absolute;right:-60px;bottom:-120px;width:340px;height:340px;border-radius:50%;background:var(--butter);opacity:.8}
+  .contact > *{position:relative;z-index:1}
+  .contact h2{font-family:var(--serif);font-weight:400;font-size:clamp(52px,8vw,112px);line-height:.92}
+  .contact h2 a{font-style:italic;color:var(--cherry);text-decoration:none;border-bottom:3px solid var(--cherry)}
+  footer{padding:0 72px 40px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+
+  @media (max-width:1000px){
+    .side{position:static;width:auto;padding:32px 24px}
+    .side nav{display:none}
+    .page{margin-left:0}
+    .hero,section{padding:56px 24px}
+    .strip{margin:0 24px;grid-template-columns:1fr 1fr}
+    .contact{margin:0 24px 48px;padding:48px 28px}
+    footer{padding:0 24px 32px}
+    .proj summary{grid-template-columns:32px 1fr 36px}
+    .proj .k,.proj .big{display:none}
+    .spread{padding-left:0}
+    .nums{grid-template-columns:1fr 1fr}
+    .cols,.trio,.about{grid-template-columns:1fr}
+    .flow{grid-template-columns:1fr 1fr}
+    .xp-row{grid-template-columns:1fr;gap:8px}
+    .ba{grid-template-columns:1fr}
+    .tray figure{width:180px}.tray figure.w{width:240px}
+  }
+</style>
+</head>
+<body>
+
+<aside class="side">
+  <div>
+    <div class="name">Julia <span>Campisano</span></div>
+    <p class="tagline">Loyalty, personalization and customer data. I turn business asks into products people use.</p>
+    <nav>
+      <a href="#work"><span class="mono">01</span>Selected work</a>
+      <a href="#approach"><span class="mono">02</span>How I work</a>
+      <a href="#experience"><span class="mono">03</span>Experience</a>
+      <a href="#about"><span class="mono">04</span>About</a>
+      <a href="#contact"><span class="mono">05</span>Contact</a>
+    </nav>
+  </div>
+  <div class="now">
+    <span class="mono">Currently</span>
+    <p>CDP Implementation Specialist at Delta Air Lines</p>
+    <div class="side-links">
+      <a href="https://www.linkedin.com/in/juliacampisano/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</aside>
+
+<div class="page">
+  <header class="hero">
+    <h1>Business requirements, <em>better products.</em></h1>
+    <p>I sit where the customer, the business and the technology meet. Most recently I ran loyalty and personalization products at RaceTrac, and now I work on customer data at Delta.</p>
+  </header>
+
+  <div class="strip">
+    <div><b>6.4M+</b><span>customer profiles in Braze</span></div>
+    <div><b>50M+</b><span>communications a year</span></div>
+    <div><b>40K+</b><span>members verified with ID.me</span></div>
+    <div><b>2.5 &rarr; 4.8</b><span>App Store rating</span></div>
+  </div>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="label"><h2>Selected <em>work</em></h2><span class="mono">Open a project</span></div>
+    <div class="index">
+
+      <details class="proj" open>
+        <summary><span class="n">01</span><span class="t">Customer Engagement Platform</span><span class="k">Braze &middot; MarTech</span><span class="big">50M+</span><span class="pm">+</span></summary>
+        <div class="spread">
+          <p class="intro">Led the end-to-end implementation of Braze across RaceTrac's app and web, pulling a fragmented communications setup into one platform for targeted, cross-channel journeys.</p>
+          <div class="q"><span class="mono">The product question</span><p>How might we centralize customer engagement while giving Marketing better targeting, more flexibility, and less dependency on development?</p></div>
+          <div class="nums">
+            <div><b>6.4M+</b><span>customer profiles in Braze</span></div>
+            <div><b>50M+</b><span>communications powered each year</span></div>
+            <div><b>375K+</b><span>new users added in the last year</span></div>
+            <div><b>100+</b><span>active campaigns across channels</span></div>
+          </div>
+          <div class="diagram">
+            <svg viewBox="0 0 900 260" role="img" aria-label="App and web SDKs feed Braze, which sends push, email, in-app inbox, content cards and geofence messages">
+              <style>.bx{fill:#fbf8f3;stroke:#2b1b20;stroke-width:1.2}.tx{font:600 15px Manrope,sans-serif;fill:#2b1b20}.ln{stroke:#2b1b20;stroke-width:1.2;fill:none}.ch{fill:#f2e1a8}</style>
+              <rect class="bx" x="20" y="60" width="170" height="56" rx="28"/><text class="tx" x="46" y="93">Mobile app SDK</text>
+              <rect class="bx" x="20" y="144" width="170" height="56" rx="28"/><text class="tx" x="68" y="177">Web SDK</text>
+              <path class="ln" d="M190 88 H300 V130 H340"/><path class="ln" d="M190 172 H300 V130"/>
+              <rect x="340" y="86" width="200" height="88" rx="44" fill="#7d2333"/><text x="440" y="128" text-anchor="middle" style="font:italic 30px 'Instrument Serif',serif;fill:#f2e1a8">Braze</text><text x="440" y="152" text-anchor="middle" style="font:400 11px 'DM Mono',monospace;fill:#f1d3cc;letter-spacing:.06em">SEGMENTS &middot; JOURNEYS</text>
+              <path class="ln" d="M540 130 H600"/><path class="ln" d="M600 30 V230"/>
+              <path class="ln" d="M600 30 H650"/><rect class="ch" x="650" y="12" width="220" height="36" rx="18"/><text class="tx" x="672" y="35">Push</text>
+              <path class="ln" d="M600 80 H650"/><rect x="650" y="62" width="220" height="36" rx="18" fill="#f1d3cc"/><text class="tx" x="672" y="85">Email</text>
+              <path class="ln" d="M600 130 H650"/><rect class="ch" x="650" y="112" width="220" height="36" rx="18"/><text class="tx" x="672" y="135">In-app messages &amp; inbox</text>
+              <path class="ln" d="M600 180 H650"/><rect x="650" y="162" width="220" height="36" rx="18" fill="#f1d3cc"/><text class="tx" x="672" y="185">Content cards</text>
+              <path class="ln" d="M600 230 H650"/><rect class="ch" x="650" y="212" width="220" height="36" rx="18"/><text class="tx" x="672" y="235">Geofencing</text>
+            </svg>
+          </div>
+          <div class="cols">
+            <div><h4>The problem</h4><p>Customer communications were spread across disconnected tools, which limited segmentation and kept Marketing dependent on development for changes.</p></div>
+            <div><h4>What I did</h4><ul><li>Owned the implementation from requirements through rollout</li><li>Worked with engineering on the app and web SDK integration</li><li>Hit an initial release in about a month, with full rollout over about 10 months</li></ul></div>
+            <div><h4>The outcome</h4><ul><li>50M+ communications a year</li><li>100+ active campaigns</li><li>About 48K daily active users and 50M+ tracked sessions</li></ul></div>
+          </div>
+          <div class="tray">
+            <figure class="w"><img src="images/braze-1.jpg" alt="In-app message inviting truckers to update their profile for weekly freebies" loading="lazy"><figcaption>Segment-driven in-app message</figcaption></figure>
+            <figure><img src="images/braze-2.jpg" alt="Personalized home screen banner thanking truckers" loading="lazy"><figcaption>Personalized home banner</figcaption></figure>
+            <figure><img src="images/braze-3.jpg" alt="Choose your reward screen offering a fuel or coffee offer" loading="lazy"><figcaption>Choose-your-reward offer</figcaption></figure>
+          </div>
+        </div>
+      </details>
+
+      <details class="proj">
+        <summary><span class="n">02</span><span class="t">Loyalty Tier Experience</span><span class="k">Loyalty &middot; UX</span><span class="big">750K+</span><span class="pm">+</span></summary>
+        <div class="spread">
+          <p class="intro">Led RaceTrac's first-ever loyalty tier reset and delivered a status tracker that helped customers understand the new earning structure and see their progress toward the next tier.</p>
+          <div class="q"><span class="mono">The product question</span><p>How might we introduce a major loyalty program change clearly while keeping customers engaged and motivated to earn their next status?</p></div>
+          <div class="nums">
+            <div><b>750K+</b><span>users engaged with the status tracker</span></div>
+            <div><b>Top 3</b><span>most visited pages in the app</span></div>
+            <div><b>800K+</b><span>annual unique users</span></div>
+            <div><b>6M+</b><span>annual visits</span></div>
+          </div>
+          <div class="cols">
+            <div><h4>The problem</h4><p>The program's first tier expiration meant customers would see their status change for the first time. Without a clear explanation, that change could feel like a loss.</p></div>
+            <div><h4>What I did</h4><ul><li>Defined requirements for the tier reset across app and web</li><li>Built a dedicated status tracker instead of relying on a notification alone</li><li>Partnered with UX and engineering through delivery</li></ul></div>
+            <div><h4>The outcome</h4><ul><li>750K+ users engaged with the tracker</li><li>The tracker ranked among the top 3 most visited pages in the app</li></ul></div>
+          </div>
+          <div class="tray blush">
+            <figure><img src="images/loyalty-1.jpg" alt="Status tracker showing current status, a points gauge across five tiers, and points needed for the next tier" loading="lazy"><figcaption>Status tracker</figcaption></figure>
+            <figure><img src="images/loyalty-2.jpg" alt="Home screen showing points, current tier and a View Status button" loading="lazy"><figcaption>Tier on the home screen</figcaption></figure>
+          </div>
+        </div>
+      </details>
+
+      <details class="proj">
+        <summary><span class="n">03</span><span class="t">Community Verification with ID.me</span><span class="k">Identity &middot; Integrations</span><span class="big">40K+</span><span class="pm">+</span></summary>
+        <div class="spread">
+          <p class="intro">Implemented in-app and web identity verification for 6 community groups: military, teachers, students, nurses, medical professionals, and first responders.</p>
+          <div class="q"><span class="mono">The product question</span><p>How might we reward community groups without asking store teams to check badges at the register?</p></div>
+          <div class="nums">
+            <div><b>40K+</b><span>members verified since January 2024</span></div>
+            <div><b>96%</b><span>true pass rate for eligible members</span></div>
+            <div><b>500</b><span>stores freed from manual badge checks</span></div>
+            <div><b>25+</b><span>targeted campaigns to verified groups</span></div>
+          </div>
+          <figure class="wide"><img src="images/idme-how.jpg" alt="Three-step How It Works: confirm your account, verify via ID.me, enjoy special offers" loading="lazy"><figcaption>The customer-facing flow: confirm account, verify, get offers</figcaption></figure>
+          <div class="cols">
+            <div><h4>The problem</h4><p>Community discounts depended on manual badge checks in store, which added work for store teams and gave Marketing no way to reach these groups directly.</p></div>
+            <div><h4>What I did</h4><ul><li>Led the ID.me integration across app and web</li><li>Aligned marketing, IT, operations and legal</li><li>Set it up to support 6 community groups</li></ul></div>
+            <div><h4>The outcome</h4><ul><li>40K+ verified out of 51K+ who started</li><li>About 1,000 fraudulent attempts stopped</li><li>Manual checks removed across 500 stores</li></ul></div>
+          </div>
+          <div class="tray">
+            <figure class="w"><img src="images/idme-2.jpg" alt="ID.me authorization screen showing the fields shared with RaceTrac" loading="lazy"><figcaption>ID.me authorization</figcaption></figure>
+            <figure class="w"><img src="images/idme-1.jpg" alt="Verified Teacher, First Responder, Military and Nurse badges" loading="lazy"><figcaption>Verified community badges</figcaption></figure>
+            <figure class="w"><img src="images/idme-3.jpg" alt="In-app message offering a free slice and fuel discount to verified service members" loading="lazy"><figcaption>Campaign to verified military</figcaption></figure>
+          </div>
+        </div>
+      </details>
+
+      <details class="proj">
+        <summary><span class="n">04</span><span class="t">App Rebuild &amp; Loyalty Redemption</span><span class="k">Mobile &middot; Loyalty</span><span class="big">4.8&#9733;</span><span class="pm">+</span></summary>
+        <div class="spread">
+          <p class="intro">Overhauled the loyalty redemption and personalization flows after the mobile app rebuild.</p>
+          <div class="q"><span class="mono">The product question</span><p>How might we make earning and redeeming feel simple enough that customers keep coming back?</p></div>
+          <div class="nums">
+            <div><b>2.5 &rarr; 4.8</b><span>App Store rating</span></div>
+            <div><b>128%</b><span>MAU growth</span></div>
+            <div><b>350K</b><span>MAU before</span></div>
+            <div><b>800K</b><span>MAU after</span></div>
+          </div>
+          <div class="tray blush">
+            <figure><img src="images/app-1.jpg" alt="Personalized app home with points, fuel savings, tier and a game" loading="lazy"><figcaption>Personalized home</figcaption></figure>
+            <figure class="w"><img src="images/app-2.jpg" alt="Just For You section with personalized offers" loading="lazy"><figcaption>Just For You offers</figcaption></figure>
+          </div>
+        </div>
+      </details>
+
+      <details class="proj">
+        <summary><span class="n">05</span><span class="t">Website &amp; Content Management</span><span class="k">Web &middot; CMS</span><span class="big"></span><span class="pm">+</span></summary>
+        <div class="spread">
+          <p class="intro">Maintained RaceTrac's B2C website. Over my time there, the site went from mostly fixed pages to flexible sections that the business could update on its own, like promo heroes, alert banners and menu modules.</p>
+          <div class="ba">
+            <figure><img src="images/web-before.jpg" alt="RaceTrac homepage when Julia started" loading="lazy"><figcaption><b>Before</b> &middot; Homepage when I started</figcaption></figure>
+            <figure><img src="images/web-after.jpg" alt="RaceTrac homepage on Julia's last day, with a promo hero, alert banner and menu modules" loading="lazy"><figcaption><b>After</b> &middot; Homepage on my last day</figcaption></figure>
+          </div>
+        </div>
+      </details>
+
+      <details class="proj">
+        <summary><span class="n">06</span><span class="t">Guest Chat</span><span class="k">Self-service &middot; Web</span><span class="big"></span><span class="pm">+</span></summary>
+        <div class="spread">
+          <p class="intro">Launched a customer-facing chatbot that gives guests one place for quick answers, FAQs, and feedback.</p>
+          <div class="tray">
+            <figure class="w"><img src="images/chat-1.jpg" alt="RaceTrac Guest Chat widget with start a chat, FAQs and feedback options" loading="lazy"><figcaption>Guest Chat widget</figcaption></figure>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach" style="padding-top:16px">
+    <div class="label"><h2>How I <em>work</em></h2></div>
+    <div class="trio">
+      <div><h3>Business</h3><p>What are we trying to accomplish, what problem is worth solving, and how will we define success?</p></div>
+      <div><h3>Customer</h3><p>Who are we solving for, what do they need, and where is the friction?</p></div>
+      <div><h3>Technology</h3><p>What can we build, what integrations are required, and which constraints matter?</p></div>
+    </div>
+    <div class="flow">
+      <div><b>Understand</b><span>Define the customer problem, business objective, and opportunity.</span></div>
+      <div><b>Translate</b><span>Turn business and customer needs into product and technical requirements.</span></div>
+      <div><b>Prioritize</b><span>Align stakeholders on value, dependencies, and tradeoffs.</span></div>
+      <div><b>Deliver</b><span>Partner with UX and engineering to ship real experiences.</span></div>
+      <div><b>Learn</b><span>Measure outcomes, gather feedback, and decide what's next.</span></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" style="padding-top:16px">
+    <div class="label"><h2><em>Experience</em></h2></div>
+    <div class="xp">
+      <div class="xp-row">
+        <div><div class="co">Delta Air Lines</div><div class="when">Oct 2026 &ndash; Now</div></div>
+        <div><h3>Customer Data Platform Implementation Specialist</h3><p>Customer Data and Journey Orchestration team, working on Adobe Experience Platform (Real-Time CDP, Journey Optimizer, Customer Journey Analytics).</p></div>
+      </div>
+      <div class="xp-row">
+        <div><div class="co">RaceTrac</div></div>
+        <div><h3>Senior Product Owner</h3><p>Owned the personalization workstream across loyalty, mobile app and web. Led three concurrent scrum teams (app, web, UI/UX) of about 19 developers and designers. Delivered the Braze implementation, the first loyalty tier reset, ID.me community verification, and a customer-facing chatbot.</p></div>
+      </div>
+      <div class="xp-row">
+        <div><div class="co">RaceTrac</div></div>
+        <div><h3>Business Analyst</h3><p>Supported product owners with backlog management and user stories, partnered with IT on product backlogs, and ran UX testing across the guest journey.</p></div>
+      </div>
+      <div class="xp-row">
+        <div><div class="co">Rooms To Go</div></div>
+        <div><h3>Digital Marketing Specialist</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="padding-top:16px">
+    <div class="label"><h2>About <em>me</em></h2></div>
+    <div class="about">
+      <div>
+        <p>I started in digital marketing, moved into product, and now work on the customer data underneath personalization. The thread is the same: figure out what the business needs, understand the customer, and find a way to build it that the technology can support.</p>
+        <p>I'm based in Atlanta. My background in marketing and industrial and graphic design shows up in how I work with UX and how I think about the customer side of every requirement.</p>
+        <a class="btn" href="https://www.linkedin.com/in/juliacampisano/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+      <div class="badges">
+        <span>CSPO, Scrum Alliance</span>
+        <span>Braze Certified Practitioner</span>
+        <span>Punchh University loyalty training</span>
+        <span>B.S. Business Admin, Marketing, Auburn</span>
+        <span>Minor, Industrial &amp; Graphic Design</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <p class="mono" style="margin-bottom:20px;color:var(--cherry)">05 / Contact</p>
+    <h2>Let's talk <a href="https://www.linkedin.com/in/juliacampisano/" target="_blank" rel="noopener">product.</a></h2>
+  </div>
+
+  <footer><span>&copy; 2026 Julia Campisano</span><span>Atlanta, GA</span></footer>
+</div>
+
+</body>
+</html>
