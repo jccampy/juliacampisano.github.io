@@ -1,10 +1,5 @@
-# Julia Campisano | Product Portfolio
+# Julia Campisano | Portfolio
 
-Static one-page portfolio for GitHub Pages. No build step.
+Password-protected portfolio for GitHub Pages. The whole page, images included, is encrypted inside `index.html`, so nothing in this repo is readable without the password.
 
-## Files
-- `index.html`: the whole site
-- `images/`: screenshots used in the case studies
-
-## Updating
-Edit `index.html` or swap an image in `images/` (keep the same file name), then upload the changed files to the repo root and commit.
+To change the content or the password, edit the unlocked source and re-encrypt it, then replace `index.html` here.
